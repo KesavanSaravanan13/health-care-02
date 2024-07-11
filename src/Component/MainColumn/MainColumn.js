@@ -1,13 +1,32 @@
 import './MainColumn.css';
-import TopRow from '../TopRow/TopRow';
-const MainColumn = () => {
-    return (
-        <div className="col-11 m-0 p-2 p-md-4 flex-fill">
-            <div className="row p-0 m-0 flex-fill d-flex justify-content-end">
-                <TopRow />
+import Profile from './Profile';
+import Dashboard from './Dashboard';
+import PatientList from './PatientList';
+import ViewPatientDetails from './ViewPatientDetails';
+
+
+const MainColumn = (props) => {
+
+    if (props.message === 'Profile') {
+        return (
+            <div className="col-11 m-0 p-0 flex-fill">
+                <Profile/>
             </div>
-        </div>
-    );
+        );
+    } else if (props.message === 'Dashboard') {
+        return (
+            <Dashboard/>
+        );
+    } else if (props.message === 'PatientList') {
+        return (
+            <PatientList/>
+        );
+    } else if (props.message === 'PatientDetails'){
+        return(
+            <ViewPatientDetails/>
+        );
+    }
+
 };
 
 

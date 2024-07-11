@@ -31,10 +31,11 @@ function App() {
           </ul>
         </div>
         <Routes>
-          <Route excat path='/' element={<MainColumn/>}/>
+          <Route excat path='/' element={<MainColumn message={'Profile'}/>}/>
           <Route path='/te' />
-          <Route path='/dashboard' />
-          <Route path='/patientlist' />
+          <Route path='/dashboard' element={<MainColumn message={'Dashboard'}/>}/>
+          <Route path='/patientlist' element={<MainColumn message={'PatientList'}/>} />
+          <Route path="/patientlist/:patientId" element={<MainColumn message={'PatientDetails'}/>}/>
           <Route path='/providers' />
           <Route path='/clicnicaltrails' />
           <Route path='/paitentcarereport' />

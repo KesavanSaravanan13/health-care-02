@@ -1,0 +1,50 @@
+.bell{
+    background-color: #dee1e3 !important;
+}
+.topblock{
+    background-color: #f7fafc;
+    border-radius: 10px;
+}
+.badge{
+    background-color: #5dcad4;
+    top:6px !important;
+    font-size: 10px !important; 
+    padding: 2.5px 5px !important;
+}
+
+.row1{
+    width: 100% !important;
+}
+
+.name01{
+    font-size: large !important;
+    font-weight: 600;
+    height: 50%;
+
+}
+.name02{
+    font-size: small !important;
+    font-weight: 300;
+    height: 50%;
+}
+
+.docimg{
+    width: auto !important;
+}
+
+.igg{
+    border-radius: 10px;
+}
+
+.active{
+    background-color: #e6f2e7;
+    color: #64b349;
+}
+div.nn{
+    color: black !important;
+}
+
+.topblock{
+    border-radius: 10px !important;
+    height: 75px !important;
+}

@@ -6,3 +6,29 @@
 .FirstRow{
     height: 50px !important;
 }
+.patientdp{
+    background-color: white;
+}
+.column{
+    background-color: #f7fafc;
+    border-radius: 13px !important;
+}
+.inputrow{
+    border: none !important;
+    outline: none !important;
+    background-color: #fafafa;
+}
+.inputrow::placeholder{
+    font-size: 15px !important;
+}
+.inputCol{
+    background-color: #fafafa;
+    border-radius: 10px !important;
+}
+
+tr th{
+    font-weight: 500 !important;
+}
+tr td {
+    padding: 15px !important;
+}

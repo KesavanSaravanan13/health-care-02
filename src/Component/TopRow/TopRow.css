@@ -2,8 +2,6 @@
     background-color: #dee1e3 !important;
 }
 .topB{
-    background-color: #f7fafc !important;
-    border-radius: 5px;
     height: 55px !important;
 }
 .badge{
@@ -13,7 +11,9 @@
     padding: 2.5px 5px !important;
 }
 
-.row1{
+.rw1{
+    border-radius: 5px;
+    background-color: #f7fafc !important;
     width: 230px !important;
 }
 

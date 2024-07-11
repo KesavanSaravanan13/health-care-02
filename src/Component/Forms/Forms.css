@@ -1,0 +1,85 @@
+input{
+    border: 1px solid rgb(197, 197, 197) !important;
+    border-radius: 5px !important;
+    width: 90% !important;
+    height: 85% !important;
+    padding-left: 15px !important;
+}
+
+::placeholder{
+    font-size: small !important;
+}
+option , select{
+    font-size: small !important;
+    padding: 0px 12px !important;
+    color: gray !important;
+}
+.gender{
+    border: none!important;
+    width: 80% !important;
+    height: 85% !important;
+}
+
+div.gdiv , select{
+    border: 1px solid rgb(197, 197, 197) !important;
+    border-radius: 5px !important;
+    /* width: 90% !important; */
+    height: 85% !important;
+}
+
+label{
+    font-size: small !important;
+}
+div.edit{
+    color: #5DCAD4;
+    width: fit-content;
+}
+
+div.pDetails{
+    font-weight: 600 !important;
+}
+.editBtn{
+    width: 70px !important;
+    border: none !important
+
+}
+.editBtn:hover{
+    border: 1px solid #5DCAD4 !important;
+}
+.editBtn:focus{
+    border: 1px solid #5DCAD4 !important;
+}
+
+input:hover , input:focus , select:focus , select:hover{
+    border-color: #5DCAD4 !important;
+    outline-color: #5DCAD4 !important;
+    box-shadow: none !important;
+}
+
+.dobinput , .dobinput:focus , .dobinput:hover{
+    outline: none !important;
+    border: none !important;
+}
+
+option{
+    width: 10% !important;
+}
+.saveBtn{
+    background-color: #5dcad4;
+    color: white;
+    width: 80px !important;
+    border: 1px solid #5dcad4;
+    border-radius: 5px;
+}
+
+#submitBtn{
+    display: none;
+}
+
+input:disabled{
+    background-color: white;
+}
+.downBlock{
+    border: 1px solid rgb(211, 211, 211) !important;
+    border-radius: 10px !important;
+}
