@@ -18,9 +18,9 @@ const Forms = () => {
     const [valueDisable, setvalueDisable] = useState(true);
     const [saveDisable, setSaveDisable] = useState(false);
 
-    const handledisable = () => {
-        setvalueDisable(!valueDisable);
-        // setSaveDisable(!saveDisable);
+    const handledisable = (value01,value02) => {
+        setvalueDisable(!value01);
+        setSaveDisable(!value02);
     }
     const handleFirstName = (event) => {
         setinputFirstName(event.target.value);
@@ -46,6 +46,7 @@ const Forms = () => {
     const handlePostalCode = (event) => {
         setinputPostalCode(event.target.value);
     }
+    console.log(saveDisable);
     return (
         <div className='col-12 m-0 p-0 pb-5'>
             <div className="row p-0 m-0 justify-content-end FirstRow flex-wrap">
@@ -59,9 +60,7 @@ const Forms = () => {
                         <div className='col-8 m-0 p-0 flex-grow-1 pDetails'>Personal Details</div>
                         <div className='col-4 m-0 p-0 text-end'>
                             <button className='m-0 p-0 btn editBtn' onClick={() => {
-                                alert(`You have enabled the EDIT!!!`);
-                                handledisable();
-                                document.getElementById("submitBtn").style.display='flex';
+                                handledisable(true,false);
                             }}>
                                 <div className='row m-0 p-0 justify-content-between'>
                                     <div className='col-1 m-0 p-0 px-1 edit'><img src={edit} className='m-0 p-0' /></div>
@@ -130,7 +129,7 @@ const Forms = () => {
                             <input type=" text" className='col-12 m-0 w-100' disabled={valueDisable} placeholder='Postal Code' value={inputPostalCode} onChange={handlePostalCode}></input>
                         </div>
                     </div>
-                    <Save id='submitBtn' funct={handledisable}/>
+                    {saveDisable?<Save id='submitBtn' funct={handledisable}/>: null}
                 </forms>
             </div>
         </div>

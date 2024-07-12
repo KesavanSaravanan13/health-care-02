@@ -23,7 +23,7 @@ const MainColumn = (props) => {
         );
     } else if (props.message === 'PatientDetails'){
         return(
-            <ViewPatientDetails/>
+            <ViewPatientDetails />
         );
     }
 
