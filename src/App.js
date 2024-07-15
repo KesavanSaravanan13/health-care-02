@@ -18,24 +18,26 @@ function App() {
     <div className='row m-0 p-0 vh-100 flex-wrap'>
       <Router>
         <div className='col-1 m-0 p-0 justify-content-center sidebar'>
-          <ul className='m-0 p-0 d-flex justify-content-center flex-wrap'>
-            <li className='m-0 p-0'><Link to='/'><LoGo/></Link></li>
-            <li className='m-0 p-0'><Link to='/te'><Icon1/></Link></li>
-            <li className='m-0 p-0'><Link to='/dashboard'><Icon2/></Link></li>
-            <li className='m-0 p-0'><Link to='/patientlist'><Icon3/></Link></li>
-            <li className='m-0 p-0'><Link to='/providers'><Icon4/></Link></li>
-            <li className='m-0 p-0'><Link to='/clicnicaltrails'><Icon5/></Link></li>
-            <li className='m-0 p-0'><Link to='/paitentcarereport'><Icon6/></Link></li>
-            <li className='m-0 p-0'><Link to='/messagecenter'><Icon7/></Link></li>
-            <li className='m-0 p-0 position-absolute bottom-0 start-0'><Link to='/logout'><Logout/></Link></li>
+          <ul className='m-0 p-0 d-flex justify-content-center flex-wrap sticky-top bottom-0 left-0 vh-100'>
+            <div className='m-0 p-0'>
+              <li className='m-0 p-0'><Link to='/'><LoGo /></Link></li>
+              <li className='m-0 p-0'><Link to='/te'><Icon1 /></Link></li>
+              <li className='m-0 p-0'><Link to='/dashboard'><Icon2 /></Link></li>
+              <li className='m-0 p-0'><Link to='/patientlist'><Icon3 /></Link></li>
+              <li className='m-0 p-0'><Link to='/providers'><Icon4 /></Link></li>
+              <li className='m-0 p-0'><Link to='/clicnicaltrails'><Icon5 /></Link></li>
+              <li className='m-0 p-0'><Link to='/paitentcarereport'><Icon6 /></Link></li>
+              <li className='m-0 p-0'><Link to='/messagecenter'><Icon7 /></Link></li>
+            </div>
+            <li className='m-0 p-0 position-absolute bottom-0'><Link to='/logout'><Logout /></Link></li>
           </ul>
         </div>
         <Routes>
-          <Route excat path='/' element={<MainColumn message={'Profile'}/>}/>
+          <Route excat path='/' element={<MainColumn message={'Profile'} />} />
           <Route path='/te' />
-          <Route path='/dashboard' element={<MainColumn message={'Dashboard'}/>}/>
-          <Route path='/patientlist' element={<MainColumn message={'PatientList'}/>} />
-          <Route path="/patientlist/:patientId" element={<MainColumn message={'PatientDetails'}/>}/>
+          <Route path='/dashboard' element={<MainColumn message={'Dashboard'} />} />
+          <Route path='/patientlist' element={<MainColumn message={'PatientList'} />} />
+          <Route path="/patientlist/:patientId" element={<MainColumn message={'ViewPatientDetails'} />} />
           <Route path='/providers' />
           <Route path='/clicnicaltrails' />
           <Route path='/paitentcarereport' />

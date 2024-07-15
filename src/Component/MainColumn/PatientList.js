@@ -3,12 +3,50 @@ import TopRow from '../TopRow/TopRow';
 import { Button, Col, Row, Table } from 'react-bootstrap';
 import search from '../Assests/search-interface-symbol.png';
 import Td from './Td';
+import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import MainColumn from './MainColumn';
+import { useState, useEffect } from 'react';
+import edit from '../Assests/delete (2).png';
+import del from '../Assests/delete (1).png';
+import view from '../Assests/view.png';
+import { Link } from 'react-router-dom';
+import '../MainColumn/PatientList.css';
+import { logDOM } from '@testing-library/react';
 
 const PatientList = () => {
-    return(
-        <div className="col-11 m-0 p-2 p-md-4 flex-fill">
+
+    const [data, setData] = useState();
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        axios.get('https://api.escuelajs.co/api/v1/products')
+            .then(response => {
+                setData(response.data);
+                setLoading(false);
+            })
+            .catch(response => {
+                setLoading(false);
+                setError(true);
+            });
+    }, []);
+
+    if (loading)
+        return (
+            <div className="col-11 m-0 p-2 p-md-4 d-flex flex-column justify-content-center align-items-center">
+                <div class="spinner-border" role="status" style={{ color: '#5DCAD4' }}>
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div className='col-12 m-0 p-0 text-center' >
+                    <h6 style={{ color: '#5DCAD4' }}>Loading....</h6>
+                </div>
+            </div>
+        );
+
+
+    return (
+            <div className="col-11 m-0 p-2 p-md-4 flex-fill overflow-auto">
                 <TopRow name={'Jessica'} />
                 <Row className='m-0 p-0 pt-4 d-flex justify-content-between fs-5 fw-semibold'>
                     <Col className='col-4 m-0 p-0 text-start'>Patient List</Col>
@@ -36,30 +74,24 @@ const PatientList = () => {
                         <thead>
                             <tr>
                                 <th>Patient ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone Number</th>
-                                <th>Issue type</th>
-                                <th>Comsumption type</th>
+                                <th>Treatment Name</th>
+                                <th>Joined Date</th>
+                                <th>Consumption type</th>
+                                <th>View Details</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className='m-0 p-0'>
-                                <Td id={'id1001'} value={'1001'} />
-                                <Td id={'id1001'} value={'Steve Williams'} />
-                                <Td id={'id1001'} value={'steve@gmail.com'} />
-                                <Td id={'id1001'} value={'+1 201 305 6072'} />
-                                <Td id={'id1001'} value={'Disorder'} />
-                                <Td id={'id1001'} value={'72'} />
-                            </tr>
-                            <tr className='m-0 p-0'>
-                                <Td id={'id1002'} value={'1002'} />
-                                <Td id={'id1002'} value={'Janet'} />
-                                <Td id={'id1002'} value={'janet@gmail.com'} />
-                                <Td id={'id1002'} value={'+1 203 378 8072'} />
-                                <Td id={'id1002'} value={'Stroke'} />
-                                <Td id={'id1002'} value={'47'} />
-                            </tr>
+                            {
+                                data.map(item => (
+                                    <tr className='m-0 p-0' key={item.id}>
+                                        <Td id={item.id} value={item.id} />
+                                        <Td id={item.id} value={item.title} />
+                                        <Td id={item.id} value={item.creationAt} />
+                                        <Td id={item.id} value={item.price} />
+                                        <td><Link to={`/patientlist/${item.id}`}><img src={view} /></Link></td>
+                                    </tr>
+                                ))
+                            }
                         </tbody>
                     </Table>
                 </Row>
