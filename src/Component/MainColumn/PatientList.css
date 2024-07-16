@@ -1,12 +1,24 @@
-
-.editb{
+.editb {
     border: none;
     outline: none;
 }
 
-h4{
+h4 {
     color: #5cdad4;
 }
-form{
+
+form {
     width: fit-content;
+}
+
+#overlay {
+    position: fixed !important;
+    display: inline-block;
+    top: 0;
+    left: 90px;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    cursor: pointer;
 }

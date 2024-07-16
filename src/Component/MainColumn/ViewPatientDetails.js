@@ -20,9 +20,9 @@ const ViewPatientDetails = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [formData, setFormData] = useState({
-        title: '',
-        creationAt: '',
-        price: 0
+        title: data.title,
+        creationAt: data.creationAt,
+        price: data.price
     });
 
     const handleCancel = () => {

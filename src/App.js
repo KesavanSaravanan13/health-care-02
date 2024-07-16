@@ -50,7 +50,7 @@ function App() {
 
 const LoGo = () => {
   return (
-    <div className="col-12 p-3 px-0 px-md-3 m-0 icon text-center flex-fill" >
+    <div className="col-12 p-3 px-0 px-md-3 m-0 icon text-center flex-fill z-0" >
       <a className='m-0 p-0' href=''>
         <img src={Logo} alt="Logo"></img>
       </a>
