@@ -15,7 +15,7 @@ import MainColumn from './Component/MainColumn/MainColumn';
 
 function App() {
   return (
-    <div className='row m-0 p-0 vh-100 flex-wrap'>
+    <div className='row m-0 p-0 vh-100 flex-nowrap flex-fill'>
       <Router>
         <div className='col-1 m-0 p-0 justify-content-center sidebar'>
           <ul className='m-0 p-0 d-flex justify-content-center flex-wrap sticky-top bottom-0 left-0 vh-100'>

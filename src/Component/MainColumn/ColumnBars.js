@@ -3,8 +3,8 @@ import '../MainColumn/ColumnBars.css';
 
 const ColumnBars = (props) => {
     return (
-        <Col className='m-0 p-3 d-flex flex-wrap justify-content-between fw-semibold column'>
-            <Col className='col-6 m-0 p-0'>
+        <Col className='col-12 col-md-5 col-lg-2 flex-grow-1 m-0 p-2 mt-3 d-flex justify-content-between flex-wrap fw-semibold column'>
+            <Col className='col-9 m-0 p-0'>
                 <Row className='m-0 p-0'>{props.messageTitle}</Row>
                 <Row className='m-0 p-0 '>{props.messageCount}</Row>
             </Col>

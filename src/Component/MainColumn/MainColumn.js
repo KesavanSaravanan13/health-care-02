@@ -9,9 +9,7 @@ const MainColumn = (props) => {
 
     if (props.message === 'Profile') {
         return (
-            <div className="col-11 m-0 p-0 flex-fill">
                 <Profile/>
-            </div>
         );
     } else if (props.message === 'Dashboard') {
         return (

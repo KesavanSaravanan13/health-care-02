@@ -4,9 +4,9 @@ import Forms from '../Forms/Forms';
 
 const Profile = () => {
     return (
-        <div className="row m-0 p-2 p-md-4">
-            <div className="row p-0 m-0 ">
-                <Forms></Forms>
+        <div className="col-11 m-0 p-0 p-md-4 flex-fill">
+            <div className="row p-4 p-md-0 m-0">
+                <Forms/>
             </div>
         </div>
     );

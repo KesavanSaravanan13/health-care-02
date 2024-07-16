@@ -8,3 +8,10 @@ ul li{
   background-color: #f7fafc;
   width: 90px !important;
 }
+
+@media screen and (max-width:450px) {
+  .sidebar{
+    background-color: #f7fafc;
+    width: 65px !important;
+  }
+}

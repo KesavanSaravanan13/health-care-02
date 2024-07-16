@@ -29,10 +29,10 @@ const ViewPatientDetails = () => {
         setEditbutton(!editButton);
     }
     const handleDel = () => {
-        let choice = prompt('do you want to delete for sure!!','no');
-        if(choice ==='yes' || choice ==='Yes'){
+        let choice = prompt('do you want to delete for sure!!', 'no');
+        if (choice === 'yes' || choice === 'Yes') {
             handleDelete();
-        }else{
+        } else {
             alert('You have chosed No');
         }
     }
@@ -100,25 +100,34 @@ const ViewPatientDetails = () => {
     return (
         editButton ? (
             <div className="col-11 m-0 p-2 p-md-4 flex-fill d-flex justify-content-center align-items-start">
-                <form>
-                    <div className='m-0 p-0 row text-center d-flex justify-content-center'>
-                        <h4 className='m-0 p-5 text-start col-5 '>Edit Details : </h4>
-                        <div className='m-0 p-0 col-12'>
-                            <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='title'>Teartment Name : </label>
-                            <input className='w-25 p-2 ms-2 m-0' name="title" value={formData.title} onChange={handleInputChange}></input>
+                <form className="m-0 p-0 col-12">
+                    <div className='m-0 p-0 row text-center d-flex justify-content-center flex-nowrap'>
+                        <div className="col-10 col-lg-6 col-xl-4 m-0 p-0">
+                            <h4 className='m-0 p-5 text-start col-12 flex-fill px-1'>Edit Details : </h4>
+                            <div className='m-0 p-0 py-2 col-12'>
+                                <div className="row m-0 p-0 flex-wrap">
+                                    <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='title'>Teartment Name : </label>
+                                    <input className='p-2 m-0 w-50 flex-fill' name="title" value={formData.title} onChange={handleInputChange}></input>
+                                </div>
+                            </div>
+                            <div className='m-0 p-0 py-2 col-12'>
+                                <div className="row m-0 p-0">
+                                    <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='creationAt'>Joined Date : </label>
+                                    <input className='p-2 m-0 w-50 flex-fill' name="creationAt" value={formData.creationAt} onChange={handleInputChange}></input>
+                                </div>
+                            </div>
+                            <div className='m-0 p-0 py-2 col-12'>
+                                <div className="row m-0 p-0">
+                                    <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='price'>Consumption Type : </label>
+                                    <input className='p-2 m-0 w-50 flex-fill' type="Number" name="price" value={formData.price} onChange={handleInputChange}></input>
+                                </div>
+                            </div>
+                            <div className='m-0 py-5 row d-flex justify-content-end'>
+                                <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 text-light" style={{ backgroundColor: '#5dcad4' }} onClick={handleSave}>Save</Col>
+                                <Col className="btn m-0 p-0 col-2 w-auto bg-danger mx-2 px-3 py-1 rounded-4 text-light" onClick={handleCancel}>Cancel</Col>
+                            </div>
                         </div>
-                        <div className='m-0 p-0 col-12'>
-                            <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='creationAt'>Joined Date : </label>
-                            <input className='w-25 p-2 ms-2 m-0' name="creationAt" value={formData.creationAt} onChange={handleInputChange}></input>
-                        </div>
-                        <div className='m-0 p-0 col-12'>
-                            <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='price'>Consumption Type : </label>
-                            <input className='w-25 p-2 ms-2 m-0' type="Number" name="price" value={formData.price} onChange={handleInputChange}></input>
-                        </div>
-                    </div>
-                    <div className='m-0 py-5 row d-flex justify-content-end w-75'>
-                        <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 text-light" style={{ backgroundColor: '#5dcad4' }} onClick={handleSave}>Save</Col>
-                        <Col className="btn m-0 p-0 col-2 w-auto bg-danger mx-2 px-3 py-1 rounded-4 text-light" onClick={handleCancel}>Cancel</Col>
+
                     </div>
                 </form>
             </div>
@@ -138,17 +147,25 @@ const ViewPatientDetails = () => {
                                         <Col className="m-0 p-0 ms-3 fs-3 d-flex align-items-center">{data.id}</Col>
                                     </div>
 
-                                    <div className="row p-0 py-2 m-0 patientActive">
-                                        <div className='col-1 m-0 p-0 px-2 docimg'><img src={doc} className='igg' width={80} height={80}></img></div>
-                                        <div className='col-5 m-0 p-0 px-2 d-flex flex-wrap'>
-                                            <div className='col-12 m-0 p-0 name01 h-auto'>
-                                                <div className="row m-0 p-0">
-                                                    <div className="col-8 m-0 p-0 me-2 w-auto">{data.title}</div>
-                                                    <div className="col-2 m-0 p-0"><span className='m-0 p-0 text-success fw-semibold' style={{ fontSize: "14px" }}>• Active</span></div>
+                                    <div className="row p-0 py-2 m-0 patientActive d-flex justify-content-center justify-content-sm-start">
+                                        <div className='col-1 m-0 p-0 px-2 docimg '><img src={doc} className='igg' width={80} height={80}></img></div>
+                                        <div className='col-8 col-md-5 m-0 p-0 px-2 d-flex flex-wrap flex-fill mt-3 mt-sm-0'>
+                                            <div className="row m-0 p-0 flex-grow-1">
+                                                <div className='col-12 m-0 p-0 name01 h-auto'>
+                                                    <div className="row m-0 p-0">
+                                                        <div className="col-8 m-0 p-0 me-2 w-auto">{data.title}</div>
+                                                        <div className="col-2 m-0 p-0 flex-grow-1"><span className='m-0 p-0 text-success fw-semibold' style={{ fontSize: "14px" }}>• Active</span></div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div className='col-12 m-0 p-0 px-2 w-auto fw-semibold' style={{ backgroundColor: '#e9f5f7', borderRadius: "5px", height: "fit-content", color: "#5dcad4", fontSize: "12px" }}>{data.creationAt}</div>
-                                            <div className='col-12 m-0 p-0 name02 h-auto fw-semibold'>{`consumption type : ${data.price}`}</div>
+                                            <div className="row m-0 p-0 w-100">
+                                                <div className='col-12 m-0 p-0 px-2 w-auto fw-semibold' style={{ backgroundColor: '#e9f5f7', borderRadius: "5px", height: "fit-content", color: "#5dcad4", fontSize: "12px" }}>{data.creationAt}</div>
+
+                                            </div>
+                                            <div className="row m-0 p-0 ">
+                                                <div className='col-12 m-0 p-0 name02 h-auto fw-semibold'>{`consumption type : ${data.price}`}</div>
+
+                                            </div>
                                         </div>
                                         <div className='col py-2 py-sm-0 p-0 m-0 d-flex justify-content-end align-items-center pe-md-3 pe-2'>
                                             <Row className="row m-0 p-0 py-2 h-auto" style={{ height: "55px", width: "150px", border: "1px solid lightgray", borderRadius: "10px" }}>

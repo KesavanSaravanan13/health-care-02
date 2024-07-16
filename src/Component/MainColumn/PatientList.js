@@ -23,7 +23,7 @@ const PatientList = () => {
     const [formData, setFormData] = useState({
         title: '',
         price: 0,
-        creationAt : '',
+        creationAt: '',
         description: '',
         categoryId: 1,
     });
@@ -62,12 +62,12 @@ const PatientList = () => {
     const handleCreate = async () => {
         try {
             const payload = {
-                title: formData.title, 
+                title: formData.title,
                 price: formData.price,
-                description: "A brief description of the product", 
-                categoryId: 1, 
-                creationAt : formData.creationAt,
-                images: ["https://example.com/product-image.jpg"] 
+                description: "A brief description of the product",
+                categoryId: 1,
+                creationAt: formData.creationAt,
+                images: ["https://example.com/product-image.jpg"]
             };
             const response = await axios.post('https://api.escuelajs.co/api/v1/products', payload);
             setData([...data, response.data]);
@@ -90,12 +90,12 @@ const PatientList = () => {
         <div className='col-11 m-0 p-2 p-md-4 flex-fill overflow-auto m-0 p-0 position-relative'>
             <div className="col-12 m-0 p-0 flex-fill">
                 <TopRow name={'Jessica'} />
-                <Row className='m-0 p-0 pt-4 d-flex justify-content-between fs-5 fw-semibold'>
-                    <Col className='col-4 m-0 p-0 text-start'>Patient List</Col>
-                    <Col className='col-4 m-0 p-0'>
+                <Row className='m-0 p-0 pt-4  fs-5 fw-semibold'>
+                    <Col className='col-4 m-0 p-0 text-start flex-grow-1'>Patient List</Col>
+                    <Col className='col-4 m-0 p-0 flex-grow-1 d-flex justify-content-end'>
                         <form className='m-0 p-0'>
-                            <Row className='m-0 p-0 d-flex justify-content-between align-items-center'>
-                                <Col className='col-10 m-0 p-0 px-3 inputCol'>
+                            <Row className='m-0 p-0 d-flex justify-content-sm-between justify-content-end align-items-center '>
+                                <Col className='col-10 m-0 p-0 px-3 inputCol flex-grow-1 flex-sm-grow-0'>
                                     <div className='row m-0 p-0 d-flex flex-nowrap justify-content-between'>
                                         <div className='col-1 m-0 p-2 ps-0 pt-1'>
                                             <Button className='m-0 p-0' variant='none'>
@@ -103,15 +103,15 @@ const PatientList = () => {
                                                     width="20px" height="15px" alt=""></img>
                                             </Button>
                                         </div>
-                                        <input type="text" className='col-8 m-0 ms-2 p-2 ps-0 inputrow' placeholder='Search'></input>
+                                        <input type="text" className='col-8 m-0 ms-4 p-2 ps-0 inputrow' placeholder='Search'></input>
                                     </div>
                                 </Col>
-                                <Col className='col-2 m-0 p-0 w-auto'><Button className='px-3 p-1 fs-5 fw-semibold text-light ' onClick={handleDisplay} style={{ backgroundColor: "#5dcad4", border: 'None' }}>+</Button></Col>
+                                <Col className='col-2 m-0 p-0 w-auto mt-2 mt-md-0'><Button className='px-3 p-1 fs-5 fw-semibold text-light ' onClick={handleDisplay} style={{ backgroundColor: "#5dcad4", border: 'None' }}>+</Button></Col>
                             </Row>
                         </form>
                     </Col>
                 </Row>
-                <Row className='m-0 mt-3 p-0'>
+                <Row className='m-0 mt-3 p-0 overflow-auto'>
                     <Table>
                         <thead>
                             <tr>
@@ -138,21 +138,27 @@ const PatientList = () => {
                     </Table>
                 </Row>
             </div>
-            {displayOn ? <div className="col-6 m-0 p-0 bg-white d-flex justify-content-center align-items-center position-fixed rounded-5" style={{ top: '300px', left: '400px', zIndex: '1000' }} >
+            {displayOn ? <div className="col-8 col-sm-6 m-0 p-0 bg-white d-flex justify-content-center align-items-center position-fixed rounded-5" style={{ top: '25%', left: '25%', zIndex: '1000' }} >
                 <form>
                     <div className='m-0 p-0 row text-center d-flex justify-content-center'>
-                        <h4 className='m-0 p-5 text-start col-5 '>Add Details : </h4>
-                        <div className='m-0 p-0 col-12'>
-                            <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='title'>Teartment Name : </label>
-                            <input className='w-25 p-2 ms-2 m-0' name="title" value={formData.title} onChange={handleInputChange}></input>
+                        <h4 className='m-0 p-5 px-3 px-sm-5 text-start col-5 flex-fill'>Add Details : </h4>
+                        <div className='m-0 p-3 py-2 col-12'>
+                            <div className="row m-0 p-0 flex-wrap">
+                                <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='title'>Teartment Name : </label>
+                                <input className='p-2 m-0 w-50 flex-fill' name="title" value={formData.title} onChange={handleInputChange}></input>
+                            </div>
                         </div>
-                        <div className='m-0 p-0 col-12'>
-                            <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='creationAt'>Joined Date : </label>
-                            <input className='w-25 p-2 ms-2 m-0' name="creationAt" value={formData.creationAt} onChange={handleInputChange}></input>
+                        <div className='m-0 p-3 py-2 col-12'>
+                            <div className="row m-0 p-0">
+                                <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='creationAt'>Joined Date : </label>
+                                <input className='p-2 m-0 w-50 flex-fill' name="creationAt" value={formData.creationAt} onChange={handleInputChange}></input>
+                            </div>
                         </div>
-                        <div className='m-0 p-0 col-12'>
-                            <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='price'>Consumption Type : </label>
-                            <input className='w-25 p-2 ms-2 m-0' type="Number" name="price" value={formData.price} onChange={handleInputChange}></input>
+                        <div className='m-0 p-3 py-2 col-12'>
+                            <div className="row m-0 p-0">
+                                <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='price'>Consumption Type : </label>
+                                <input className='p-2 m-0 w-50 flex-fill' type="Number" name="price" value={formData.price} onChange={handleInputChange}></input>
+                            </div>
                         </div>
                     </div>
                     <div className='m-0 py-5 row d-flex justify-content-end w-75'>
@@ -162,7 +168,7 @@ const PatientList = () => {
 
                 </form>
             </div> : null}
-            {displayOn ? <div className='col-12 m-0 p-0 d-flex justify-content-around' id='overlay'></div> : null}
+            {displayOn ? <div className='col-12 m-0 p-0 ' id='overlay'></div> : null}
         </div>
     );
 }
