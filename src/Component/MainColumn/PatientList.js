@@ -8,6 +8,7 @@ import { useState, useEffect, useNavigate } from 'react';
 import view from '../Assests/view.png';
 import { Link } from 'react-router-dom';
 import '../MainColumn/PatientList.css';
+import Swal from 'sweetalert2';
 
 const PatientList = () => {
 
@@ -59,10 +60,23 @@ const PatientList = () => {
         try {
             const response = await axios.post('https://api.escuelajs.co/api/v1/products', formData);
             setData([...data, response.data]);
-            alert('New List Added!!!');
             setDisplayOn(false);
+            handlePre();
         } catch (error) {
             console.error(error);
+            Swal.fire({
+                toast: true,
+                position: "top-end",
+                icon: "error",
+                title: "Failed To Add, Please Fill Something!!!",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer);
+                    toast.addEventListener('mouseleave', Swal.resumeTimer);
+                }
+            });
         }
     };
 
@@ -73,6 +87,27 @@ const PatientList = () => {
         });
     };
 
+    const handlePre = (e) => {
+        setFormData({
+            title: '',
+            price: 0,
+            creationAt: '',
+        });
+        
+        Swal.fire({
+            toast: true,
+            position: "top-end",
+            icon: "success",
+            title: "Data Added Successfully",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            }
+        });
+    };
 
     return (
         <div className='col-11 m-0 p-2 p-md-4 flex-fill overflow-auto m-0 p-0 position-relative'>
@@ -112,7 +147,7 @@ const PatientList = () => {
                         </thead>
                         <tbody>
                             {
-                                data.map(item => (
+                                data?.map(item => (
                                     <tr className='m-0 p-0' key={item.id}>
                                         <Td id={item.id} value={item.id} />
                                         <Td id={item.id} value={item.title} />
@@ -150,8 +185,13 @@ const PatientList = () => {
                         </div>
                     </div>
                     <div className='m-0 py-5 row d-flex justify-content-end w-75'>
-                        <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 text-light" style={{ backgroundColor: '#5dcad4' }} onClick={handleCreate}>Create</Col>
-                        <Col className="btn m-0 p-0 col-2 w-auto bg-danger mx-2 px-3 py-1 rounded-4 text-light" onClick={handleDisplay}>Cancel</Col>
+                        <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 text-light" style={{ backgroundColor: '#5dcad4' }} onClick={() => {
+                            handleCreate();
+                        }}>Create</Col>
+                        <Col className="btn m-0 p-0 col-2 w-auto bg-danger mx-2 px-3 py-1 rounded-4 text-light" onClick={() => {
+                            handleDisplay();
+                            handlePre();
+                        }}>Cancel</Col>
                     </div>
                 </form>
             </div> : null}

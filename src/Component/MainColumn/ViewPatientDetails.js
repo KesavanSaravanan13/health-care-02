@@ -9,10 +9,11 @@ import video from '../Assests/video.png';
 import del from '../Assests/delete (1).png';
 import { useState, useEffect } from 'react';
 import axios from "axios";
-
+import Swal from "sweetalert2";
 
 
 const ViewPatientDetails = () => {
+    const [count, setCount] = useState(0);
     const { patientId } = useParams();
     const navigate = useNavigate();
     const [data, setData] = useState('');
@@ -29,21 +30,36 @@ const ViewPatientDetails = () => {
         setEditbutton(!editButton);
     }
     const handleDel = () => {
-        let choice = prompt('do you want to delete for sure!!', 'no');
-        if (choice === 'yes' || choice === 'Yes') {
-            handleDelete();
-        } else {
-            alert('You have chosed No');
-        }
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                handleDelete();
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
+            } else {
+                Swal.fire({
+                    title: "Canceled!",
+                    icon: "success"
+                });
+            }
+        });
     }
     const handleDelete = async () => {
         try {
             await axios.delete(`https://api.escuelajs.co/api/v1/products/${patientId}`);
-            alert('Item deleted successfully!');
             navigate('/patientlist');
         } catch (error) {
             console.error('Error deleting item:', error);
-            alert('Failed to delete item. Please try again.');
         }
     }
 
@@ -51,7 +67,6 @@ const ViewPatientDetails = () => {
         try {
             const response = await axios.put(`https://api.escuelajs.co/api/v1/products/${patientId}`, formData);
             setData(response.data);
-            setEditbutton(false);
         } catch (error) {
             console.log(error);
         }
@@ -71,6 +86,20 @@ const ViewPatientDetails = () => {
             } catch (error) {
                 setError(error);
                 setLoading(false);
+
+                Swal.fire({
+                    toast: true,
+                    position: "top-end",
+                    icon: "error",
+                    title: "Failed",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer);
+                        toast.addEventListener('mouseleave', Swal.resumeTimer);
+                    }
+                });
             }
         }
 
@@ -90,12 +119,11 @@ const ViewPatientDetails = () => {
         );
 
     const handleInputChange = (e) => {
+        setCount(count + 1);
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
         });
-
-        console.log(e.target.title);
     };
 
     const patient = (data.id == patientId);
@@ -128,7 +156,26 @@ const ViewPatientDetails = () => {
                                 </div>
                             </div>
                             <div className='m-0 py-5 row d-flex justify-content-end'>
-                                <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 text-light" style={{ backgroundColor: '#5dcad4' }} onClick={handleSave}>Save</Col>
+                                <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 text-light" style={{ backgroundColor: '#5dcad4' }} onClick={() => {
+                                    handleSave();
+                                    setEditbutton(false);
+                                    if (count > 0) {
+                                        Swal.fire({
+                                            toast: true,
+                                            position: "top-end",
+                                            icon: "success",
+                                            title: "Edited Successfully",
+                                            showConfirmButton: false,
+                                            timer: 3000,
+                                            timerProgressBar: true,
+                                            didOpen: (toast) => {
+                                                toast.addEventListener('mouseenter', Swal.stopTimer);
+                                                toast.addEventListener('mouseleave', Swal.resumeTimer);
+                                            }
+                                        });
+                                    }
+                                    setCount(0);
+                                }}>Save</Col>
                                 <Col className="btn m-0 p-0 col-2 w-auto bg-danger mx-2 px-3 py-1 rounded-4 text-light" onClick={handleCancel}>Cancel</Col>
                             </div>
                         </div>
