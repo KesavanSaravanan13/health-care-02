@@ -62,6 +62,11 @@ const ViewPatientDetails = () => {
             try {
                 const response = await axios.get(`https://api.escuelajs.co/api/v1/products/${patientId}`);
                 setData(response.data);
+                setFormData({
+                    title: response.data.title,
+                    creationAt: response.data.creationAt,
+                    price: response.data.price
+                });
                 setLoading(false);
             } catch (error) {
                 setError(error);

@@ -4,15 +4,10 @@ import { Button, Col, Row, Table } from 'react-bootstrap';
 import search from '../Assests/search-interface-symbol.png';
 import Td from './Td';
 import axios from 'axios';
-import { Route, Routes } from 'react-router-dom';
-import MainColumn from './MainColumn';
 import { useState, useEffect, useNavigate } from 'react';
-import edit from '../Assests/delete (2).png';
-import del from '../Assests/delete (1).png';
 import view from '../Assests/view.png';
 import { Link } from 'react-router-dom';
 import '../MainColumn/PatientList.css';
-import { logDOM } from '@testing-library/react';
 
 const PatientList = () => {
 
@@ -24,8 +19,9 @@ const PatientList = () => {
         title: '',
         price: 0,
         creationAt: '',
-        description: '',
+        description: 'Hi there',
         categoryId: 1,
+        images: ["https://example.com/product-image.jpg"]
     });
 
 
@@ -61,15 +57,7 @@ const PatientList = () => {
 
     const handleCreate = async () => {
         try {
-            const payload = {
-                title: formData.title,
-                price: formData.price,
-                description: "A brief description of the product",
-                categoryId: 1,
-                creationAt: formData.creationAt,
-                images: ["https://example.com/product-image.jpg"]
-            };
-            const response = await axios.post('https://api.escuelajs.co/api/v1/products', payload);
+            const response = await axios.post('https://api.escuelajs.co/api/v1/products', formData);
             setData([...data, response.data]);
             alert('New List Added!!!');
             setDisplayOn(false);
@@ -130,7 +118,7 @@ const PatientList = () => {
                                         <Td id={item.id} value={item.title} />
                                         <Td id={item.id} value={item.creationAt} />
                                         <Td id={item.id} value={item.price} />
-                                        <td><Link to={`/patientlist/${item.id}`}><img src={view} /></Link></td>
+                                        <td className='m-0 text-center'><Link to={`/patientlist/${item.id}`}><img src={view} /></Link></td>
                                     </tr>
                                 ))
                             }
@@ -138,8 +126,8 @@ const PatientList = () => {
                     </Table>
                 </Row>
             </div>
-            {displayOn ? <div className="col-8 col-sm-6 m-0 p-0 bg-white d-flex justify-content-center align-items-center position-fixed rounded-5" style={{ top: '25%', left: '25%', zIndex: '1000' }} >
-                <form>
+            {displayOn ? <div className="col-8 col-sm-7 col-lg-6 col-xl-5 m-0 p-0 bg-white d-flex justify-content-center align-items-center position-fixed rounded-5" style={{ top: '25%', left: '25%', zIndex: '1000' }} >
+                <form className="m-0 p-0 col-12">
                     <div className='m-0 p-0 row text-center d-flex justify-content-center'>
                         <h4 className='m-0 p-5 px-3 px-sm-5 text-start col-5 flex-fill'>Add Details : </h4>
                         <div className='m-0 p-3 py-2 col-12'>
@@ -165,7 +153,6 @@ const PatientList = () => {
                         <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 text-light" style={{ backgroundColor: '#5dcad4' }} onClick={handleCreate}>Create</Col>
                         <Col className="btn m-0 p-0 col-2 w-auto bg-danger mx-2 px-3 py-1 rounded-4 text-light" onClick={handleDisplay}>Cancel</Col>
                     </div>
-
                 </form>
             </div> : null}
             {displayOn ? <div className='col-12 m-0 p-0 ' id='overlay'></div> : null}
