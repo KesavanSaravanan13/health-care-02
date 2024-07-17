@@ -1,0 +1,17 @@
+ul li{
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .sidebar{
+    background-color: #f7fafc;
+    width: 90px !important;
+  }
+  
+  @media screen and (max-width:450px) {
+    .sidebar{
+      background-color: #f7fafc;
+      width: 65px !important;
+    }
+  }

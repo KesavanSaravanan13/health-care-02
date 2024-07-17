@@ -46,7 +46,6 @@ const Forms = () => {
     const handlePostalCode = (event) => {
         setinputPostalCode(event.target.value);
     }
-    console.log(saveDisable);
     return (
         <div className='col-12 m-0 p-0 pb-5'>
             <div className="row p-0 m-0 justify-content-end FirstRow flex-wrap">

@@ -1,0 +1,30 @@
+.loginRow {
+    /* background-image: url('https://wallpapers.com/images/hd/the-good-doctor-surgical-tools-cspvy7448lvq8qx6.jpg'); */
+    background-image: linear-gradient(to bottom , #0c1f29,#487182);
+}
+
+
+img.logoLogin {
+    width: 70px !important;
+    height: 70px !important;
+}
+
+.loginCol {
+    background-color: white;
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 0%;
+    border-color: #0c1f29;
+}
+
+
+.sideRow {
+    background-color: rgb(154, 154, 155, 0.6);
+}
+
+@media screen and (max-width : 450px) {
+    .loginCol {
+        background-color: white;
+        border-top-left-radius: 0%;
+        border-bottom-left-radius: 0%;
+    }
+}
