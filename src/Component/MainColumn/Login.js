@@ -50,7 +50,7 @@ const Login = () => {
                         <div className='m-0 pt-5 row d-flex justify-content-center'>
                             <Col className="col-12 btn m-0 p-0 px-3 py-2 mx-2 rounded text-light" style={{ backgroundColor: '#5dcad4',width:'63%' }} onClick={handleLogin}><Link className='m-0 p-0 text-decoration-none text-light' to='/profile'>Login</Link></Col>
                         </div>
-                        <div className='m-0 p-0 pe-3 text-end justify-content-end col-10' style={{fontSize:'12px'}}>Don't have an account? <Link className='m-0 p-0 w-auto text-decoration-none text-primary'>Sign up</Link></div>
+                        <div className='m-0 p-0 pe-2 pe-sm-3 text-end justify-content-end col-10' style={{fontSize:'12px'}}>Don't have an account? <Link className='m-0 p-0 w-auto text-decoration-none text-primary'>Sign up</Link></div>
                     </form>
                 </Col>
             </Row >
