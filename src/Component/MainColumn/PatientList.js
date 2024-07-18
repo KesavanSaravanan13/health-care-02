@@ -93,20 +93,6 @@ const PatientList = () => {
             price: 0,
             creationAt: '',
         });
-        
-        Swal.fire({
-            toast: true,
-            position: "top-end",
-            icon: "success",
-            title: "Data Added Successfully",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer);
-                toast.addEventListener('mouseleave', Swal.resumeTimer);
-            }
-        });
     };
 
     return (
@@ -187,10 +173,36 @@ const PatientList = () => {
                     <div className='m-0 py-5 row d-flex justify-content-end w-75'>
                         <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 text-light" style={{ backgroundColor: '#5dcad4' }} onClick={() => {
                             handleCreate();
+                            Swal.fire({
+                                toast: true,
+                                position: "top-end",
+                                icon: "success",
+                                title: "Data Added Successfully",
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer);
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer);
+                                }
+                            });
                         }}>Create</Col>
                         <Col className="btn m-0 p-0 col-2 w-auto bg-danger mx-2 px-3 py-1 rounded-4 text-light" onClick={() => {
                             handleDisplay();
                             handlePre();
+                            Swal.fire({
+                                toast: true,
+                                position: "top-end",
+                                icon: "info",
+                                title: "Cancelled",
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer);
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer);
+                                }
+                            });
                         }}>Cancel</Col>
                     </div>
                 </form>
