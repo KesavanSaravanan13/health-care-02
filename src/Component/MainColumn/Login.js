@@ -1,13 +1,18 @@
 import { Col, Row } from 'react-bootstrap';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../Assests/frame_small.png';
 import '../MainColumn/Login.css';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import * as Yup from 'yup';
 
 const Login = () => {
     const [login, setLogin] = useState(true);
+    const navigate = useNavigate();
+
     const handleLogin = () => {
         setLogin(!login);
+        navigate('/profile');
     }
 
     return (
@@ -27,31 +32,50 @@ const Login = () => {
                     </Row>
                 </Col>
                 <Col className='col-12 col-md-6 m-0 p-0 d-flex justify-content-center justify-content-sm-end align-items-center loginCol'>
-                    <form className="m-0 p-0 col-10 loginForm">
-                        <div className='m-0 p-0 row text-center d-flex justify-content-center'>
-                            <div className='m-0 p-0 pt-4 pb-2'>
-                                <img className='m-0 p-0 logoLogin' src={Logo} />
-                            </div>
-                            <h4 className='m-0 p-4 px-3 pb-5 text-start fs-4 flex-fill text-center'>Log In</h4>
-                            <div className='m-0 p-3 py-2 pt-4 col-8 flex-grow-1 flex-sm-grow-0'>
-                                <div className="row m-0 p-0 flex-wrap">
-                                    <label className='col-xl-4 m-0 p-0 fw-semibold fs-5 text-start pe-2' for='userId'>E-mail / Id : </label>
-                                    <input className='col-xl-8 p-2 m-0 w-50 flex-fill' name="userId"></input>
+                    <Formik
+                        initialValues={{
+                            email: '',
+                            password: '',
+                        }}
+                        validationSchema={Yup.object({
+                            email: Yup.string().email('Invalid email address').required('Required'),
+                            password: Yup.string()
+                                .required('No password provided.')
+                                .min(8, 'Password is too short - should be 8 chars minimum.')
+                                .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
+                        })}
+                    >
+                        {({ errors, touched }) => (
+                            <Form className="m-0 p-0 col-10 loginForm">
+                                <div className='m-0 p-0 row text-center d-flex justify-content-center'>
+                                    <div className='m-0 p-0 pt-4 pb-2'>
+                                        <img className='m-0 p-0 logoLogin' src={Logo} />
+                                    </div>
+                                    <h4 className='m-0 p-4 px-3 pb-5 text-start fs-4 flex-fill text-center'>Log In</h4>
+                                    <div className='m-0 p-3 py-2 pt-4 col-8 flex-grow-1 flex-sm-grow-0'>
+                                        <div className="row m-0 p-0 flex-wrap">
+                                            <label htmlFor='email' className='col-xl-4 m-0 p-0 fw-semibold fs-5 text-start pe-2' >E-mail / Id : </label>
+                                            <Field name='email' className={`col-xl-8 p-2 m-0 w-50 flex-fill ${errors.email && touched.email ? 'input-error' : ''} `}></Field>
+                                            <ErrorMessage name="email" component="div" className="error-message" />
+                                        </div>
+                                    </div>
+                                    <div className='m-0 p-3 py-2 col-8 flex-grow-1 flex-sm-grow-0'>
+                                        <div className="row m-0 p-0">
+                                            <label htmlFor='password' className='col-xl-4 m-0 p-0 fw-semibold fs-5 text-start pe-2' >Password : </label>
+                                            <Field name='password' className={`col-xl-8 p-2 m-0 w-50 flex-fill ${errors.password && touched.password ? 'input-error' : ''} `} ></Field>
+                                            <ErrorMessage name="password" component="div" className="error-message" />
+                                        </div>
+                                    </div>
+                                    <div className='m-0 p-0 pe-3 text-end col-8 flex-grow-1 flex-sm-grow-0' style={{ fontSize: '12px' }}><Link className='m-0 p-0 text-decoration-none text-primary'>Forgot Password?</Link></div>
                                 </div>
-                            </div>
-                            <div className='m-0 p-3 py-2 col-8 flex-grow-1 flex-sm-grow-0'>
-                                <div className="row m-0 p-0">
-                                    <label className='col-xl-4 m-0 p-0 fw-semibold fs-5 text-start pe-2' for='password'>Password : </label>
-                                    <input className='col-xl-8 p-2 m-0 w-50 flex-fill' name="password" ></input>
+                                <div className='m-0 pt-5 row d-flex justify-content-center'>
+                                    <Col className="col-12 btn m-0 p-0 px-3 py-2 mx-2 rounded text-light" style={{ backgroundColor: '#5dcad4', width: '63%' }} onClick={handleLogin}>Login</Col>
                                 </div>
-                            </div>
-                            <div className='m-0 p-0 pe-3 text-end col-8 flex-grow-1 flex-sm-grow-0' style={{fontSize:'12px'}}><Link className='m-0 p-0 text-decoration-none text-primary'>Forgot Password?</Link></div>
-                        </div>
-                        <div className='m-0 pt-5 row d-flex justify-content-center'>
-                            <Col className="col-12 btn m-0 p-0 px-3 py-2 mx-2 rounded text-light" style={{ backgroundColor: '#5dcad4',width:'63%' }} onClick={handleLogin}><Link className='m-0 p-0 text-decoration-none text-light' to='/profile'>Login</Link></Col>
-                        </div>
-                        <div className='m-0 p-0 pe-2 pe-sm-3 text-end justify-content-end col-10' style={{fontSize:'12px'}}>Don't have an account? <Link className='m-0 p-0 w-auto text-decoration-none text-primary'>Sign up</Link></div>
-                    </form>
+                                <div className='m-0 p-0 pe-2 pe-sm-3 text-end justify-content-end col-10' style={{ fontSize: '12px' }}>Don't have an account? <Link className='m-0 p-0 w-auto text-decoration-none text-primary'>Sign up</Link></div>
+
+                            </Form>
+                        )}
+                    </Formik>
                 </Col>
             </Row >
         ) : null

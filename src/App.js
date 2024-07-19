@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route excat path='/' element={<Login/>}/>
+        <Route excat path='' element={<Login/>}/>
         <Route path='/profile' element={<MainColumn message={'Profile'} />} />
         <Route path='/dashboard' element={<MainColumn message={'Dashboard'} />} />
         <Route path='/patientlist' element={<MainColumn message={'PatientList'} />} />

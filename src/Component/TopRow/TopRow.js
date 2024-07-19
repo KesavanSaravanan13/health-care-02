@@ -34,7 +34,7 @@ const TopRow = (props) => {
                                     </div>
                                 </div>
                                 <div className='col-1 p-0 m-0 text-center me-2'>
-                                    <img src={dropdown} class="m-0 p-0"
+                                    <img src={dropdown} className="m-0 p-0"
                                         width="15px" height="15px" alt=""></img>
                                 </div>
                             </div>

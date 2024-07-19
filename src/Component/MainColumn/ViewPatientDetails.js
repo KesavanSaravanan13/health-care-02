@@ -236,14 +236,12 @@ const ViewPatientDetails = () => {
                                     <div className="m-0 p-0 py-5 row d-flex  justify-content-end">
                                         <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 text-light" style={{ backgroundColor: '#5dcad4' }} onClick={handleCancel}>Edit</Col>
                                         <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 text-light border-danger border-2" onClick={handleDel}><img src={del} /></Col>
-
+                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    //     )
-                    // )
+                    </div> 
                 }
             </div>)
     );

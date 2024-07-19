@@ -1,4 +1,4 @@
-input{
+input {
     border: 1px solid rgb(197, 197, 197) !important;
     border-radius: 5px !important;
     width: 90% !important;
@@ -6,65 +6,78 @@ input{
     padding-left: 15px !important;
 }
 
-::placeholder{
+::placeholder {
     font-size: small !important;
 }
-option , select{
+
+option,
+select {
     font-size: small !important;
     padding: 0px 12px !important;
     color: gray !important;
 }
-.gender{
-    border: none!important;
+
+.gender {
+    border: none !important;
     width: 80% !important;
     height: 85% !important;
 }
 
-div.gdiv , select{
+div.gdiv,
+select {
     border: 1px solid rgb(197, 197, 197) !important;
     border-radius: 5px !important;
     /* width: 90% !important; */
     height: 85% !important;
 }
 
-label{
+label {
     font-size: small !important;
 }
-div.edit{
+
+div.edit {
     color: #5DCAD4;
     width: fit-content;
 }
 
-div.pDetails{
+div.pDetails {
     font-weight: 600 !important;
 }
-.editBtn{
+
+.editBtn {
     width: 70px !important;
     border: none !important
+}
 
-}
-.editBtn:hover{
-    border: 1px solid #5DCAD4 !important;
-}
-.editBtn:focus{
+.editBtn:hover {
     border: 1px solid #5DCAD4 !important;
 }
 
-input:hover , input:focus , select:focus , select:hover{
+.editBtn:focus {
+    border: 1px solid #5DCAD4 !important;
+}
+
+input:hover,
+input:focus,
+select:focus,
+select:hover {
     border-color: #5DCAD4 !important;
     outline-color: #5DCAD4 !important;
     box-shadow: none !important;
 }
 
-.dobinput , .dobinput:focus , .dobinput:hover{
+.dobinput,
+.dobinput:focus,
+.dobinput:hover {
     outline: none !important;
     border: none !important;
 }
 
-option{
+option {
     width: 10% !important;
 }
-.saveBtn{
+
+.saveBtn {
     background-color: #5dcad4;
     color: white;
     width: 80px !important;
@@ -72,14 +85,30 @@ option{
     border-radius: 5px;
 }
 
-#submitBtn{
+#submitBtn {
     display: none;
 }
 
-input:disabled{
+input:disabled {
     background-color: white;
 }
-.downBlock{
+
+.downBlock {
     border: 1px solid rgb(211, 211, 211) !important;
     border-radius: 10px !important;
+}
+
+.input-error:focus  {
+    border-color: red !important;
+    outline-color: red !important;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-image: url("../Assests/dob.png");
+    cursor: pointer;
 }

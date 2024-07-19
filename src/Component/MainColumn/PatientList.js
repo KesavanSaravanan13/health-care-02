@@ -47,8 +47,8 @@ const PatientList = () => {
     if (loading)
         return (
             <div className="col-11 m-0 p-2 p-md-4 d-flex flex-column justify-content-center align-items-center">
-                <div class="spinner-border" role="status" style={{ color: '#5DCAD4' }}>
-                    <span class="visually-hidden">Loading...</span>
+                <div className="spinner-border" role="status" style={{ color: '#5DCAD4' }}>
+                    <span className="visually-hidden">Loading...</span>
                 </div>
                 <div className='col-12 m-0 p-0 text-center' >
                     <h6 style={{ color: '#5DCAD4' }}>Loading....</h6>
@@ -108,7 +108,7 @@ const PatientList = () => {
                                     <div className='row m-0 p-0 d-flex flex-nowrap justify-content-between'>
                                         <div className='col-1 m-0 p-2 ps-0 pt-1'>
                                             <Button className='m-0 p-0' variant='none'>
-                                                <img src={search} class=" m-0 p-0"
+                                                <img src={search} className=" m-0 p-0"
                                                     width="20px" height="15px" alt=""></img>
                                             </Button>
                                         </div>
@@ -153,19 +153,19 @@ const PatientList = () => {
                         <h4 className='m-0 p-5 px-3 px-sm-5 text-start col-5 flex-fill'>Add Details : </h4>
                         <div className='m-0 p-3 py-2 col-12'>
                             <div className="row m-0 p-0 flex-wrap">
-                                <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='title'>Teartment Name : </label>
+                                <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} htmlFor='title'>Teartment Name : </label>
                                 <input className='p-2 m-0 w-50 flex-fill' name="title" value={formData.title} onChange={handleInputChange}></input>
                             </div>
                         </div>
                         <div className='m-0 p-3 py-2 col-12'>
                             <div className="row m-0 p-0">
-                                <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='creationAt'>Joined Date : </label>
+                                <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} htmlFor='creationAt'>Joined Date : </label>
                                 <input className='p-2 m-0 w-50 flex-fill' name="creationAt" value={formData.creationAt} onChange={handleInputChange}></input>
                             </div>
                         </div>
                         <div className='m-0 p-3 py-2 col-12'>
                             <div className="row m-0 p-0">
-                                <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='price'>Consumption Type : </label>
+                                <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} htmlFor='price'>Consumption Type : </label>
                                 <input className='p-2 m-0 w-50 flex-fill' type="Number" name="price" value={formData.price} onChange={handleInputChange}></input>
                             </div>
                         </div>
