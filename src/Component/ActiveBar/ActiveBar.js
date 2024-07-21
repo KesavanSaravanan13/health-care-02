@@ -1,7 +1,6 @@
 import './ActiveBar.css';
 import doc from '../Assests/doc.jpg';
-import { useState } from 'react';
-import { Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 const ActiveBar = (props) => {
     return (
