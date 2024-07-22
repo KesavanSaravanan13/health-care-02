@@ -61,8 +61,6 @@ const TopRow = (props) => {
                         </Dropdown.Menu>
                     </Dropdown>
                 </Col>
-
-
             </Row>
         </Row>
     );
