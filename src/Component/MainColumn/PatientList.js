@@ -115,7 +115,7 @@ const PatientList = () => {
                                         <input type="text" className='col-8 m-0 ms-4 p-2 ps-0 inputrow' placeholder='Search'></input>
                                     </div>
                                 </Col>
-                                <Col className='col-2 m-0 p-0 w-auto mt-2 mt-md-0'><Button className='px-3 p-1 fs-5 fw-semibold text-light ' onClick={handleDisplay} style={{ backgroundColor: "#5dcad4", border: 'None' }}>+</Button></Col>
+                                <Col className='col-2 m-0 p-0 w-auto mt-2 mt-md-0 '><Button className='px-3 p-1 fs-5 fw-semibold text-light w-auto' onClick={handleDisplay} style={{ backgroundColor: "#5dcad4", border: 'None' }}>+</Button></Col>
                             </Row>
                         </form>
                     </Col>

@@ -28,3 +28,10 @@ img.logoLogin {
         border-bottom-left-radius: 0%;
     }
 }
+
+button{
+    background-color: #5dcad4;
+    width: 63%;
+    border: none;
+    outline: none;
+}

@@ -44,6 +44,10 @@ const Login = () => {
                                 .min(8, 'Password is too short - should be 8 chars minimum.')
                                 .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
                         })}
+                        onSubmit={values => {
+                            handleLogin();
+                        }
+                        }
                     >
                         {({ errors, touched }) => (
                             <Form className="m-0 p-0 col-10 loginForm">
@@ -62,16 +66,16 @@ const Login = () => {
                                     <div className='m-0 p-3 py-2 col-8 flex-grow-1 flex-sm-grow-0'>
                                         <div className="row m-0 p-0">
                                             <label htmlFor='password' className='col-xl-4 m-0 p-0 fw-semibold fs-5 text-start pe-2' >Password : </label>
-                                            <Field name='password' className={`col-xl-8 p-2 m-0 w-50 flex-fill ${errors.password && touched.password ? 'input-error' : ''} `} ></Field>
+                                            <Field name='password' type='password' className={`col-xl-8 p-2 m-0 w-50 flex-fill ${errors.password && touched.password ? 'input-error' : ''} `} ></Field>
                                             <ErrorMessage name="password" component="div" className="error-message" />
                                         </div>
                                     </div>
                                     <div className='m-0 p-0 pe-3 text-end col-8 flex-grow-1 flex-sm-grow-0' style={{ fontSize: '12px' }}><Link className='m-0 p-0 text-decoration-none text-primary'>Forgot Password?</Link></div>
                                 </div>
                                 <div className='m-0 pt-5 row d-flex justify-content-center'>
-                                    <Col className="col-12 btn m-0 p-0 px-3 py-2 mx-2 rounded text-light" style={{ backgroundColor: '#5dcad4', width: '63%' }} onClick={handleLogin}>Login</Col>
+                                    <button type={'submit'} className="m-0 p-0 px-3 py-2 mx-2 rounded text-light" style={{ backgroundColor: '#5dcad4', width: '63%', }} >Login</button>
                                 </div>
-                                <div className='m-0 p-0 pe-2 pe-sm-3 text-end justify-content-end col-10' style={{ fontSize: '12px' }}>Don't have an account? <Link className='m-0 p-0 w-auto text-decoration-none text-primary'>Sign up</Link></div>
+                                <div className='m-0 p-0 pe-2 pe-sm-3 text-end justify-content-end col-10' style={{ fontSize: '12px' }} >Don't have an account? <Link className='m-0 p-0 w-auto text-decoration-none text-primary'>Sign up</Link></div>
 
                             </Form>
                         )}
