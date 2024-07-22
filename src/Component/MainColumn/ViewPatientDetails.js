@@ -167,13 +167,13 @@ const ViewPatientDetails = () => {
                                 <Col className='col py-2 py-sm-0 p-0 m-0 d-flex justify-content-end align-items-center pe-md-3 pe-2'>
                                     <Row className="row m-0 p-0 py-2 h-auto" style={{ height: "55px", width: "150px", border: "1px solid lightgray", borderRadius: "10px" }}>
                                         <Col className="m-0 p-0 d-flex justify-content-center align-items-center  h-auto">
-                                            <img src={call} className="m-0 p-0" width={"20px"} height={"20px"} />
+                                            <img src={call} className="m-0 p-0" width={"20px"} height={"20px"} alt="call"/>
                                         </Col>
                                         <Col className="m-0 p-0 d-flex justify-content-center align-items-center h-auto">
-                                            <img src={msg} className="m-0 p-0" width={"20px"} height={"20px"} />
+                                            <img src={msg} className="m-0 p-0" width={"20px"} height={"20px"} alt="message"/>
                                         </Col>
                                         <Col className="m-0 p-0 d-flex justify-content-center align-items-center  h-auto">
-                                            <img src={video} className="m-0 p-0" width={"20px"} height={"20px"} />
+                                            <img src={video} className="m-0 p-0" width={"20px"} height={"20px"} alt="video call"/>
                                         </Col>
                                     </Row>
                                 </Col>

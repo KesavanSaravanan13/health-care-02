@@ -1,12 +1,11 @@
 import Td from './Td';
 import axios from 'axios';
-import Swal from 'sweetalert2';
 import TopRow from '../TopRow/TopRow';
 import view from '../Assests/view.png';
 import '../MainColumn/PatientList.css';
 import search from '../Assests/search-interface-symbol.png';
 import { Link } from 'react-router-dom';
-import { useState, useEffect, useNavigate } from 'react';
+import { useState, useEffect} from 'react';
 import { Button, Col, Row, Table } from 'react-bootstrap';
 import { Cancel, Error, Success } from './SweetFires';
 import moment from 'moment';
@@ -37,7 +36,7 @@ const PatientList = () => {
                 setLoading(false);
                 setError(true);
             });
-    }, []);
+    }, [error]);
     
     const handleCreate = async () => {
         try {
