@@ -4,67 +4,67 @@ import doc from '../Assests/jejeje-1.png';
 import dropdown from '../Assests/dropdown_arrow.webp';
 import logout from '../Assests/Frame 6.png';
 import Dropdown from 'react-bootstrap/Dropdown';
+import { Col, DropdownButton, DropdownHeader, DropdownToggle, Row } from 'react-bootstrap';
 import password from '../Assests/password.jpg';
 import profile from '../Assests/user.png';
-import { DropdownToggle } from 'react-bootstrap';
 
 const TopRow = (props) => {
     return (
-        <div className="row topB p-1 m-0 d-flex justify-content-end">
-            <div className='m-0 p-0 row rw1'>
-                <div className="col-3 m-0 p-0 px-2 d-flex align-items-center">
+        <Row className="topB p-1 m-0 d-flex justify-content-end">
+            <Row className='m-0 p-0 rw1'>
+                <Col className="col-3 m-0 p-0 px-2 d-flex align-items-center">
                     <button className="btn p-1 px-2 m-0 rounded-5 bell">
                         <div className='d-inline-block position-relative m-0 p-0'>
-                            <img src={bell} className='p-0 m-0'>
+                            <img src={bell} className='p-0 m-0' alt='Notification'>
                             </img>
                             <span className='badge position-absolute start-100 translate-middle rounded-pill m-0'>2</span>
                         </div>
                     </button>
-                </div>
-                <div className='col-1 m-0 p-0 vr'></div>
-                <div className="col-7 m-0 p-0 flex-fill ps-2 align-items-center">
+                </Col>
+                <Col className='col-1 m-0 p-0 vr'></Col>
+                <Col className="col-7 m-0 p-0 flex-fill ps-2 align-items-center">
                     <Dropdown className='m-0 p-0 '>
                         <DropdownToggle variant='bg-light' className='m-0 p-0 w-100 dropdown'>
-                            <div className='row m-0 p-0 d-flex justify-content-between'>
-                                <div className='col-10 m-0 p-0 d-flex justify-content-start'>
-                                    <img src={doc} className='col-4 m-0 p-0 w-auto'></img>
-                                    <div className='col-6 m-0 p-0'>
-                                        <div className='col-12 m-0 p-0 name1'>{props.name}</div>
-                                        <div className='col-12 m-0 p-0 name2'>admin</div>
-                                    </div>
-                                </div>
-                                <div className='col-1 p-0 m-0 text-center me-2'>
+                            <Row className='m-0 p-0 d-flex justify-content-between'>
+                                <Col className='col-10 m-0 p-0 d-flex justify-content-start'>
+                                    <img src={doc} className='col-4 m-0 p-0 w-auto' alt='Profile'></img>
+                                    <Col className='col-6 m-0 p-0'>
+                                        <Col className='col-12 m-0 p-0 name1'>{props.name}</Col>
+                                        <Col className='col-12 m-0 p-0 name2'>admin</Col>
+                                    </Col>
+                                </Col>
+                                <Col className='col-1 p-0 m-0 text-center me-2'>
                                     <img src={dropdown} className="m-0 p-0"
-                                        width="15px" height="15px" alt=""></img>
-                                </div>
-                            </div>
+                                        width="15px" height="15px" alt="" />
+                                </Col>
+                            </Row>
                         </DropdownToggle>
-                        <Dropdown.Menu className='p-0 m-0 dmenu'>
+                        <Dropdown.Menu className='p-0 m-0 dmenu mt-3'>
                             <Dropdown.Item href="" className='p-2 ps-1 m-0'>
-                                <div className='row p-0 m-0 flex-nowrap'>
-                                    <div className='col-2 m-0 ms-1 p-0'><img src={profile} className='m-0 p-0'></img></div>
-                                    <div className='col-10 m-0 p-0 ps-3 tt'>My Profile</div>
-                                </div>
+                                <Row className=' p-0 m-0 flex-nowrap'>
+                                    <Col className='col-2 m-0 ms-1 p-0'><img src={profile} className='m-0 p-0' alt='Profile' /></Col>
+                                    <Col className='col-10 m-0 p-0 ps-3 tt mt-1'>My Profile</Col>
+                                </Row>
                             </Dropdown.Item>
                             <Dropdown.Item href="" className='p-2 m-0 ps-1'>
-                                <div className='row p-0 m-0 flex-nowrap'>
-                                    <div className='col-2 m-0 ms-1 p-0'><img src={password} className='m-0 p-0'></img></div>
-                                    <div className='col-10 m-0 p-0 ps-1 tt'>Change Password</div>
-                                </div>
+                                <Row className='p-0 m-0 flex-nowrap'>
+                                    <Col className='col-2 m-0 ms-1 p-0'><img src={password} className='m-0 p-0' alt='Password' /></Col>
+                                    <Col className='col-10 m-0 p-0 ps-1 tt ms-2 mt-1'>Change Password</Col>
+                                </Row>
                             </Dropdown.Item>
                             <Dropdown.Item href="" className='p-2 m-0 ps-1'>
-                                <div className='row p-0 m-0 flex-nowrap'>
-                                    <div className='col-2 m-0 p-0'><img src={logout} className='m-0 p-0' width={24} height={24}></img></div>
-                                    <div className='col-10 m-0 p-0 ps-3 tt'>Log out</div>
-                                </div>
+                                <Row className='p-0 m-0 flex-nowrap'>
+                                    <Col className='col-2 m-0 p-0'><img src={logout} className='m-0 p-0' alt='Logout' width={24} height={24} /></Col>
+                                    <Col className='col-10 m-0 p-0 ps-3 tt mt-1'>Log out</Col>
+                                </Row>
                             </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
-                </div>
+                </Col>
 
 
-            </div>
-        </div>
+            </Row>
+        </Row>
     );
 };
 
