@@ -35,7 +35,11 @@ const TopRow = (props) => {
                                 </Col>
                                 <Col className='col-1 p-0 m-0 text-center me-2'>
                                     <img src={dropdown} className="m-0 p-0"
+<<<<<<< HEAD
                                         width="15px" height="15px" alt=""/>
+=======
+                                        width="15px" height="15px" alt="" />
+>>>>>>> 286d2bfd66b847239b9f91274d566bf99b9cc6dd
                                 </Col>
                             </Row>
                         </DropdownToggle>
@@ -48,21 +52,32 @@ const TopRow = (props) => {
                             </Dropdown.Item>
                             <Dropdown.Item href="" className='p-2 m-0 ps-1'>
                                 <Row className='p-0 m-0 flex-nowrap'>
+<<<<<<< HEAD
                                     <Col className='col-2 m-0 ms-1 p-0'><img src={password} className='m-0 p-0' alt='Password'/></Col>
+=======
+                                    <Col className='col-2 m-0 ms-1 p-0'><img src={password} className='m-0 p-0' alt='Password' /></Col>
+>>>>>>> 286d2bfd66b847239b9f91274d566bf99b9cc6dd
                                     <Col className='col-10 m-0 p-0 ps-1 tt ms-2 mt-1'>Change Password</Col>
                                 </Row>
                             </Dropdown.Item>
                             <Dropdown.Item href="" className='p-2 m-0 ps-1'>
                                 <Row className='p-0 m-0 flex-nowrap'>
+<<<<<<< HEAD
                                     <Col className='col-2 m-0 p-0'><img src={logout} className='m-0 p-0' alt='Logout' width={24} height={24}/></Col>
+=======
+                                    <Col className='col-2 m-0 p-0'><img src={logout} className='m-0 p-0' alt='Logout' width={24} height={24} /></Col>
+>>>>>>> 286d2bfd66b847239b9f91274d566bf99b9cc6dd
                                     <Col className='col-10 m-0 p-0 ps-3 tt mt-1'>Log out</Col>
                                 </Row>
                             </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </Col>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 286d2bfd66b847239b9f91274d566bf99b9cc6dd
             </Row>
         </Row>
     );
