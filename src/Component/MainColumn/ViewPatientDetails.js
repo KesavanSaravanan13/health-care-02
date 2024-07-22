@@ -110,8 +110,8 @@ const ViewPatientDetails = () => {
     if (loading)
         return (
             <Col className="col-11 m-0 p-2 p-md-4 d-flex flex-column justify-content-center align-items-center">
-                <Row class="spinner-border" role="status" style={{ color: '#5DCAD4' }}>
-                    <span class="visually-hidden"></span>
+                <Row className="spinner-border" role="status" style={{ color: '#5DCAD4' }}>
+                    <span className="visually-hidden"></span>
                 </Row>
                 <Col className='col-12 m-0 p-0 text-center' >
                     <h6 style={{ color: '#5DCAD4' }}>Loading....</h6>
@@ -193,7 +193,7 @@ const ViewPatientDetails = () => {
                         <Col className='m-0 p-0 py-2 col-12 '>
                             <Row className="m-0 p-0 ">
                                 <Col className="col-sm-6 m-0 p-0 d-flex justify-content-end">
-                                    <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='title'>Teartment Name : </label>
+                                    <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} htmlFor='title'>Teartment Name : </label>
                                 </Col>
                                 <Col className="col-sm-6m-0 p-0">
                                     <input className='p-2 m-0' name="title" value={formData.title} onChange={handleInputChange}></input>
@@ -203,7 +203,7 @@ const ViewPatientDetails = () => {
                         <Col className='m-0 p-0 py-2 col-12'>
                             <Row className="m-0 p-0">
                                 <Col className="col-sm-6 m-0 p-0 d-flex justify-content-end">
-                                    <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='price'>Consumption Type : </label>
+                                    <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} htmlFor='price'>Consumption Type : </label>
                                 </Col>
                                 <Col className="col-sm-6 m-0 p-0">
                                     <input className='p-2 m-0' type="Number" name="price" value={formData.price} onChange={handleInputChange}></input>
