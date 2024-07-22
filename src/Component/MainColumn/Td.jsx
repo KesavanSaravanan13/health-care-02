@@ -1,0 +1,13 @@
+import moment from 'moment';
+import '../MainColumn/Td.css';
+
+const Td = (props) => {
+    if(props.type === 'date')
+        return <td className='m-0 '>{moment().format('lll')}</td>;
+    return <td className='m-0 '>{props.value}</td>;
+    
+
+}
+
+
+export default Td;

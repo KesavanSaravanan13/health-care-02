@@ -1,3 +1,4 @@
+import SideIcon from './SideIcon';
 import '../MainColumn/SideBar.css';
 import Logo from '../Assests/frame_small.png';
 import icon1 from '../Assests/Frame 15.png';
@@ -15,7 +16,7 @@ const Sidebar = () => {
   return (
     <Col className='col-1 m-0 p-0 justify-content-center sidebar'>
       <ul className='m-0 p-0 d-flex justify-content-center flex-wrap sticky-top bottom-0 left-0 vh-100'>
-        <Row className='m-0 p-0'>
+        <Row className='m-0 p-0 align-items-start h-50'>
           <li className='m-0 p-0'><Link to='/'><LoGo /></Link></li>
           <li className='m-0 p-0'><Link to='/profile'><Icon1 /></Link></li>
           <li className='m-0 p-0'><Link to='/dashboard'><Icon2 /></Link></li>
@@ -30,55 +31,34 @@ const Sidebar = () => {
     </Col>
   );
 }
-
 const LoGo = () => {
-  return (
-    <Col className="col-12 p-3 px-0 px-md-3 m-0 icon text-center flex-fill z-0" >
-      <img src={Logo} alt="Logo"></img>
-    </Col>
-  );
+  return <SideIcon ic={Logo} alt={'Logo'} />;
 }
 const Icon1 = () => {
-  return (
-    <Col className="col-12 p-3 px-0 px-md-3 m-0 icon text-center flex-fill" >
-      <img src={icon1} className='p-3 icon1' alt="Icon1"></img>
-    </Col>
-  );
+  return <SideIcon ic={icon1} alt={'Icon1'} />;
 }
 const Icon2 = () => {
-  return (
-    <Col className="col-12 p-3 px-0 px-md-3 m-0 icon text-center flex-fill" ><img src={icon2} className='p-2' alt="Icon2"></img></Col>
-  );
+  return <SideIcon ic={icon2} alt={'Icon2'} />;
 }
 const Icon3 = () => {
-  return (
-    <Col className="col-12 px-0 px-md-3 p-3 m-0 icon text-center flex-fill" ><img src={icon3} className='p-2' alt="Icon3"></img></Col>
-  );
+  return <SideIcon ic={icon3} alt={'Icon3'} />;
 }
 const Icon4 = () => {
-  return (
-    <Col className="col-12 p-3 px-0 px-md-3 m-0 icon text-center flex-fill" ><img src={icon4} className='p-2' alt="Icon4"></img></Col>
-  );
+  return <SideIcon ic={icon4} alt={'Icon4'} />;
 }
 const Icon5 = () => {
-  return (
-    <Col className="col-12 p-3 px-0 px-md-3 m-0 icon text-center flex-fill" ><img src={icon5} className='p-2' alt="Icon5"></img></Col>
-  );
+  return <SideIcon ic={icon5} alt={'Icon5'} />;
 }
 const Icon6 = () => {
-  return (
-    <Col className="col-12 p-3 px-0 px-md-3 m-0 icon text-center flex-fill" ><img src={icon6} className='p-2' alt="Icon6"></img></Col>
-  );
+  return <SideIcon ic={icon6} alt={'Icon6'} />;
 }
 const Icon7 = () => {
-  return (
-    <Col className="col-12 p-3 px-0 px-md-3 m-0 icon text-center flex-fill" ><img src={icon7} className='p-2' alt="Icon7"></img></Col>
-  );
+  return <SideIcon ic={icon7} alt={'Icon7'} />;
 }
 const Logout = () => {
   return (
     <Row className='row m-0 p-0 icon flex-fill'>
-      <Col className="col-12 p-3 px-0 px-md-3 m-0 icon text-center flex-fill"><img src={logout} className='p-2' alt="LogOut"></img></Col>
+      <SideIcon ic={logout} alt={'LogOut'} />
     </Row>
   );
 }

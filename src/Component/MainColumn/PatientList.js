@@ -37,17 +37,6 @@ const PatientList = () => {
                 setError(true);
             });
     }, []);
-    if (loading)
-        return (
-            <Col className="col-11 m-0 p-2 p-md-4 d-flex flex-column justify-content-center align-items-center">
-                <Row className="spinner-border" role="status" style={{ color: '#5DCAD4' }}>
-                    <span className="visually-hidden">Loading...</span>
-                </Row>
-                <Col className='col-12 m-0 p-0 text-center' >
-                    <h6 style={{ color: '#5DCAD4' }}>Loading....</h6>
-                </Col>
-            </Col>
-        );
     const handleCreate = async () => {
         try {
             const response = await axios.post('https://api.escuelajs.co/api/v1/products', formData);
@@ -116,88 +105,99 @@ const PatientList = () => {
                     <Table>
                         <thead>
                             <tr>
-                                <th>Patient ID</th>
-                                <th>Treatment Name</th>
-                                <th>Joined Date</th>
-                                <th>Consumption type</th>
-                                <th>View Details</th>
+                                <th className='col-1'>S.No</th>
+                                <th className='col-4'>Treatment Name</th>
+                                <th className='col-3'>Joined Date</th>
+                                <th className='col-2'>Consumption type</th>
+                                <th className='text-center col-1'>View Details</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                data?.map(item => (
-                                    <tr className='m-0 p-0' key={item.id}>
-                                        <Td id={item.id} value={item.id} />
-                                        <Td id={item.id} value={item.title} />
-                                        <Td id={item.id} value={item.creationAt} />
-                                        <Td id={item.id} value={item.price} />
-                                        <td className='m-0 text-center'><Link to={`/patientlist/${item.id}`}><img src={view} /></Link></td>
+                                loading ? (
+                                    <tr>
+                                        <td colSpan={4}>
+                                            <Col className="col-11 m-0 p-2 d-flex flex-column justify-content-center align-items-center">
+                                                <Row className="spinner-border" role="status" style={{ color: '#5DCAD4' }}>
+                                                    <span className="visually-hidden">Loading...</span>
+                                                </Row>
+                                            </Col>
+                                        </td>
                                     </tr>
-                                ))
+                                ) : (
+                                    data?.map(item => (
+                                        <tr className='m-0 p-0' key={item.id}>
+                                            <Td type={'text'} className='col-1' id={item.id} value={item.id}/>
+                                            <Td type={'text'} className='col-4' id={item.id} value={item.title} />
+                                            <Td  type={'date'} className='col-3' id={item.id} value={item.creationAt}></Td>
+                                            <Td  type={'text'} className='col-2' id={item.id} value={item.price} />
+                                            <td className='m-0 text-center col-1'><Link to={`/patientlist/${item.id}`}><img src={view} alt='view'/></Link></td>
+                                        </tr>
+                                    )))
                             }
                         </tbody>
                     </Table>
                 </Row>
             </Col>
             {displayOn ? <Col className="col-8 col-sm-7 col-lg-6 col-xl-5 m-0 p-0 bg-white d-flex justify-content-center align-items-center position-fixed rounded-5" style={{ top: '25%', left: '25%', zIndex: '1000' }} >
-                <form className="m-0 p-0 col-12">
-                    <Row className='m-0 p-0 text-center d-flex justify-content-center'>
-                        <h4 className='m-0 p-5 px-3 px-sm-5 text-start col-5 flex-fill'>Add Details : </h4>
-                        <Col className='m-0 p-3 py-2 col-12'>
-                            <Row className="m-0 p-0 flex-wrap">
-                                <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} htmlFor='title'>Teartment Name : </label>
-                                <input className='p-2 m-0 w-50 flex-fill' name="title" value={formData.title} onChange={handleInputChange}></input>
+            <form className="m-0 rounded-4 bg-white p-3 p-md-5">
+                        <h4 className='m-0 p-0 text-start col-12 flex-fill'>Add Details : </h4>
+                        <Col className='m-0 p-0 py-2 col-12 '>
+                            <Row className="m-0 p-0 ">
+                                <Col className="col-12 col-lg-6 m-0 p-0 d-flex justify-content-lg-end">
+                                    <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='title'>Teartment Name : </label>
+                                </Col>
+                                <Col className="col-12 col-lg-6 m-0 p-0">
+                                    <input className='p-2 m-0' name="title" value={formData.title} onChange={handleInputChange}></input>
+                                </Col>
                             </Row>
                         </Col>
-                        <Col className='m-0 p-3 py-2 col-12'>
-                            <div className="row m-0 p-0">
-                                <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} htmlFor='creationAt'>Joined Date : </label>
-                                <input className='p-2 m-0 w-50 flex-fill' name="creationAt" value={formData.creationAt} onChange={handleInputChange}></input>
-                            </div>
+                        <Col className='m-0 p-0 py-2 col-12'>
+                            <Row className="m-0 p-0">
+                                <Col className="col-12 col-lg-6 m-0 p-0 d-flex justify-content-lg-end">
+                                    <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} for='price'>Consumption Type : </label>
+                                </Col>
+                                <Col className="col-12 col-lg-6 m-0 p-0">
+                                    <input className='p-2 m-0' type="Number" name="price" value={formData.price} onChange={handleInputChange}></input>
+                                </Col>
+                            </Row>
                         </Col>
-                        <Col className='m-0 p-3 py-2 col-12'>
-                            <div className="row m-0 p-0">
-                                <label className='m-0 p-0 fs-5 fw-semibold' style={{ width: '200px' }} htmlFor='price'>Consumption Type : </label>
-                                <input className='p-2 m-0 w-50 flex-fill' type="Number" name="price" value={formData.price} onChange={handleInputChange}></input>
-                            </div>
-                        </Col>
-                    </Row>
-                    <Row className='m-0 py-5 d-flex justify-content-end w-75'>
-                        <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 text-light" style={{ backgroundColor: '#5dcad4' }} onClick={() => {
-                            handleCreate();
-                            Swal.fire({
-                                toast: true,
-                                position: "top-end",
-                                icon: "success",
-                                title: "Data Added Successfully",
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                                didOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer);
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer);
-                                }
-                            });
-                        }}>Create</Col>
-                        <Col className="btn m-0 p-0 col-2 w-auto bg-danger mx-2 px-3 py-1 rounded-4 text-light" onClick={() => {
-                            handleDisplay();
-                            handlePre();
-                            Swal.fire({
-                                toast: true,
-                                position: "top-end",
-                                icon: "info",
-                                title: "Cancelled",
-                                showConfirmButton: false,
-                                timer: 3000,
-                                timerProgressBar: true,
-                                didOpen: (toast) => {
-                                    toast.addEventListener('mouseenter', Swal.stopTimer);
-                                    toast.addEventListener('mouseleave', Swal.resumeTimer);
-                                }
-                            });
-                        }}>Cancel</Col>
-                    </Row>
-                </form>
+                        <Row className='m-0 p-0 d-flex justify-content-end mt-3'>
+                            <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 text-light" style={{ backgroundColor: '#5dcad4' }} onClick={() => {
+                                handleCreate();
+                                Swal.fire({
+                                    toast: true,
+                                    position: "top-end",
+                                    icon: "success",
+                                    title: "Data Added Successfully",
+                                    showConfirmButton: false,
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    didOpen: (toast) => {
+                                        toast.addEventListener('mouseenter', Swal.stopTimer);
+                                        toast.addEventListener('mouseleave', Swal.resumeTimer);
+                                    }
+                                });
+                            }}>Create</Col>
+                            <Col className="btn m-0 p-0 col-2 w-auto bg-danger mx-2 px-3 py-1 rounded-4 text-light" onClick={() => {
+                                handleDisplay();
+                                handlePre();
+                                Swal.fire({
+                                    toast: true,
+                                    position: "top-end",
+                                    icon: "info",
+                                    title: "Cancelled",
+                                    showConfirmButton: false,
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    didOpen: (toast) => {
+                                        toast.addEventListener('mouseenter', Swal.stopTimer);
+                                        toast.addEventListener('mouseleave', Swal.resumeTimer);
+                                    }
+                                });
+                            }}>Cancel</Col>
+                        </Row>
+                    </form > 
             </Col> : null}
             {displayOn ? <div className='col-12 m-0 p-0 ' id='overlay'></div> : null}
         </Col>

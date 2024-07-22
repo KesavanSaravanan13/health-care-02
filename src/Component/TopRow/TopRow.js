@@ -4,16 +4,27 @@ import doc from '../Assests/jejeje-1.png';
 import dropdown from '../Assests/dropdown_arrow.webp';
 import logout from '../Assests/Frame 6.png';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { Col, DropdownButton, DropdownHeader, DropdownToggle, Row } from 'react-bootstrap';
+import { Col, DropdownToggle, Row } from 'react-bootstrap';
 import password from '../Assests/password.jpg';
 import profile from '../Assests/user.png';
+
+const dropdownFunc = (name, alt, label) => {
+    return (
+        <Dropdown.Item href="" className='p-2 ps-1 m-0'>
+            <Row className=' p-0 m-0 flex-nowrap'>
+                <Col className='col-2 m-0 ms-1 p-0'><img src={name} className='m-0 p-0' alt={alt} /></Col>
+                <Col className='col-10 m-0 p-0 ps-3 tt mt-1'>{label}</Col>
+            </Row>
+        </Dropdown.Item>
+    );
+}
 
 const TopRow = (props) => {
     return (
         <Row className="topB p-1 m-0 d-flex justify-content-end">
             <Row className='m-0 p-0 rw1'>
                 <Col className="col-3 m-0 p-0 px-2 d-flex align-items-center">
-                    <button className="btn p-1 px-2 m-0 rounded-5 bell">
+                    <button className="btn p-1 px-2 m-0 rounded-5 bell w-auto">
                         <div className='d-inline-block position-relative m-0 p-0'>
                             <img src={bell} className='p-0 m-0' alt='Notification'>
                             </img>
@@ -35,49 +46,17 @@ const TopRow = (props) => {
                                 </Col>
                                 <Col className='col-1 p-0 m-0 text-center me-2'>
                                     <img src={dropdown} className="m-0 p-0"
-<<<<<<< HEAD
-                                        width="15px" height="15px" alt=""/>
-=======
                                         width="15px" height="15px" alt="" />
->>>>>>> 286d2bfd66b847239b9f91274d566bf99b9cc6dd
                                 </Col>
                             </Row>
                         </DropdownToggle>
                         <Dropdown.Menu className='p-0 m-0 dmenu mt-3'>
-                            <Dropdown.Item href="" className='p-2 ps-1 m-0'>
-                                <Row className=' p-0 m-0 flex-nowrap'>
-                                    <Col className='col-2 m-0 ms-1 p-0'><img src={profile} className='m-0 p-0' alt='Profile' /></Col>
-                                    <Col className='col-10 m-0 p-0 ps-3 tt mt-1'>My Profile</Col>
-                                </Row>
-                            </Dropdown.Item>
-                            <Dropdown.Item href="" className='p-2 m-0 ps-1'>
-                                <Row className='p-0 m-0 flex-nowrap'>
-<<<<<<< HEAD
-                                    <Col className='col-2 m-0 ms-1 p-0'><img src={password} className='m-0 p-0' alt='Password'/></Col>
-=======
-                                    <Col className='col-2 m-0 ms-1 p-0'><img src={password} className='m-0 p-0' alt='Password' /></Col>
->>>>>>> 286d2bfd66b847239b9f91274d566bf99b9cc6dd
-                                    <Col className='col-10 m-0 p-0 ps-1 tt ms-2 mt-1'>Change Password</Col>
-                                </Row>
-                            </Dropdown.Item>
-                            <Dropdown.Item href="" className='p-2 m-0 ps-1'>
-                                <Row className='p-0 m-0 flex-nowrap'>
-<<<<<<< HEAD
-                                    <Col className='col-2 m-0 p-0'><img src={logout} className='m-0 p-0' alt='Logout' width={24} height={24}/></Col>
-=======
-                                    <Col className='col-2 m-0 p-0'><img src={logout} className='m-0 p-0' alt='Logout' width={24} height={24} /></Col>
->>>>>>> 286d2bfd66b847239b9f91274d566bf99b9cc6dd
-                                    <Col className='col-10 m-0 p-0 ps-3 tt mt-1'>Log out</Col>
-                                </Row>
-                            </Dropdown.Item>
+                            {dropdownFunc(profile, 'Profile', 'My Profile')}
+                            {dropdownFunc(password, 'Password', 'Change Password')}
+                            {dropdownFunc(logout, 'Logout', 'Log out')}
                         </Dropdown.Menu>
                     </Dropdown>
                 </Col>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 286d2bfd66b847239b9f91274d566bf99b9cc6dd
             </Row>
         </Row>
     );

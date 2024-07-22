@@ -1,11 +1,8 @@
 import TopRow from '../TopRow/TopRow';
 import ColumnBars from './ColumnBars';
-<<<<<<< HEAD
-=======
 import recover from '../Assests/Frame 21.png';
 import Patientdp from '../Assests/Frame 20.png';
 import treatment from '../Assests/Frame 22.png';
->>>>>>> 286d2bfd66b847239b9f91274d566bf99b9cc6dd
 import { Col, Row } from 'react-bootstrap';
 
 
