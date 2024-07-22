@@ -1,44 +1,40 @@
 import './MainColumn.css';
 import Profile from './Profile';
+import Sidebar from './SideBar';
 import Dashboard from './Dashboard';
 import PatientList from './PatientList';
 import ViewPatientDetails from './ViewPatientDetails';
-import Sidebar from './SideBar';
-
+import { Row } from 'react-bootstrap';
 
 const MainColumn = (props) => {
-
     if (props.message === 'Profile') {
         return (
-            <div className='row m-0 p-0 vh-100 flex-nowrap flex-fill'>
-                <Sidebar/>
+            <Row className='m-0 p-0 vh-100 flex-nowrap flex-fill'>
+                <Sidebar />
                 <Profile />
-            </div >
+            </Row >
         );
     } else if (props.message === 'Dashboard') {
         return (
-            <div className='row m-0 p-0 vh-100 flex-nowrap flex-fill'>
-                <Sidebar/>
+            <Row className='m-0 p-0 vh-100 flex-nowrap flex-fill'>
+                <Sidebar />
                 <Dashboard />
-            </div >
+            </Row >
         );
     } else if (props.message === 'PatientList') {
         return (
-            <div className='row m-0 p-0 vh-100 flex-nowrap flex-fill'>
-                <Sidebar/>
+            <Row className='m-0 p-0 vh-100 flex-nowrap flex-fill'>
+                <Sidebar />
                 <PatientList />
-            </div >
+            </Row >
         );
     } else if (props.message === 'ViewPatientDetails') {
         return (
-            <div className='row m-0 p-0 vh-100 flex-nowrap flex-fill'>
-                <Sidebar/>
+            <Row className='m-0 p-0 vh-100 flex-nowrap flex-fill'>
+                <Sidebar />
                 <ViewPatientDetails />
-            </div >
+            </Row >
         );
     }
-
 };
-
-
 export default MainColumn;
