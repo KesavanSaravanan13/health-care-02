@@ -42,7 +42,7 @@ export const Error = () => {
             toast: true,
             position: "top-end",
             icon: "error",
-            title: "Failed To Add, Please Fill Something!!!",
+            title: "Failed To Add!!!",
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
@@ -53,3 +53,4 @@ export const Error = () => {
         })
     );
 }
+

@@ -1,0 +1,58 @@
+import TopRow from "../TopRow/TopRow";
+import doc from '../Assests/doc.jpg';
+import call from '../Assests/telephone.png'
+import msg from '../Assests/Frame 23.png';
+import video from '../Assests/video.png';
+import { Col, Row } from "react-bootstrap"
+import { Link} from "react-router-dom";
+import moment from "moment";
+
+const DetailsRow = (props) => {
+    return (
+        <Col className="m-0 p-0">
+            <Row className="p-0 m-0 justify-content-end FirstRow flex-wrap">
+                <TopRow name={'Jessica'} />
+            </Row>
+            <Row className="p-0 py-2 pt-4 m-0 profile">
+                <Col className="col-2 m-0 p-0 me-2 w-auto d-flex align-items-center"><Link to={'/patientlist'} className="text-decoration-none text-black">Patient List</Link></Col>
+                <Col className="col-1 ms-2 w-auto m-0 p-0 fs-3 d-flex align-items-center text-secondary">{'>'}</Col>
+                <Col className="m-0 p-0 ms-3 fs-3 d-flex align-items-center">{`Patient ${props.value.id}'s details`}</Col>
+            </Row>
+            <Row className="p-0 py-2 m-0 patientActive d-flex justify-content-center justify-content-sm-start">
+                <Col className='col-1 m-0 p-0 px-2 docimg '><img src={doc} className='igg' width={80} height={80} alt="Profile"></img></Col>
+                <Col className='col-8 col-md-5 m-0 p-0 px-2 d-flex flex-wrap flex-fill mt-3 mt-sm-0'>
+                    <Row className="m-0 p-0 flex-grow-1">
+                        <Col className='col-12 m-0 p-0 name01 h-auto'>
+                            <Row className="m-0 p-0">
+                                <Col className="col-8 m-0 p-0 me-2 w-auto">{props.value.title}</Col>
+                                <Col className="col-2 m-0 p-0 flex-grow-1"><span className='m-0 p-0 text-success fw-semibold' style={{ fontSize: "14px" }}>• Active</span></Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                    <Row className="m-0 p-0 w-100">
+                        <Col className='col-12 m-0 p-0 px-2 w-auto fw-semibold' style={{ backgroundColor: '#e9f5f7', borderRadius: "5px", height: "fit-content", color: "#5dcad4", fontSize: "12px" }}>{moment(props.value.creationAt).format('lll')}</Col>
+                    </Row>
+                    <Row className="m-0 p-0 ">
+                        <Col className='col-12 m-0 p-0 name02 h-auto fw-semibold'>{`consumption type : ${props.value.price}`}</Col>
+                    </Row>
+                </Col>
+                <Col className='col py-2 py-sm-0 p-0 m-0 d-flex justify-content-end align-items-center pe-md-3 pe-2'>
+                    <Row className="row m-0 p-0 py-2 h-auto" style={{ height: "55px", width: "150px", border: "1px solid lightgray", borderRadius: "10px" }}>
+                        <Col className="m-0 p-0 d-flex justify-content-center align-items-center  h-auto">
+                            <img src={call} className="m-0 p-0" width={"20px"} height={"20px"} alt="call" />
+                        </Col>
+                        <Col className="m-0 p-0 d-flex justify-content-center align-items-center h-auto">
+                            <img src={msg} className="m-0 p-0" width={"20px"} height={"20px"} alt="message" />
+                        </Col>
+                        <Col className="m-0 p-0 d-flex justify-content-center align-items-center  h-auto">
+                            <img src={video} className="m-0 p-0" width={"20px"} height={"20px"} alt="video call" />
+                        </Col>
+                    </Row>
+                </Col>
+            </Row>
+        </Col>
+    );
+}
+
+
+export default DetailsRow;
