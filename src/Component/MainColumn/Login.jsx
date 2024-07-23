@@ -21,7 +21,7 @@ const Login = () => {
                 <Col className='m-0 p-0 col-12 col-md-6 d-flex justify-content-center align-items-center'>
                     <Row className='m-0 p-2 w-75 py-sm-5 sideRow rounded'>
                         <Col className='m-0 p-0 col-12 text-center'>
-                            <img className='m-0 p-0 logoLogin' src={Logo} />
+                            <img className='m-0 p-0 logoLogin' src={Logo} alt='Logo'/>
                         </Col>
                         <Col className='m-0 p-0 col-12 fs-2 fw-semibold text-light text-center'>
                             "Empowering Healthcare Proffessionals"

@@ -99,7 +99,7 @@ input:disabled {
 }
 
 .input-error:focus  {
-    border-color: red !important;
+    border: 0.5px solid red !important;
     outline-color: red !important;
 }
 

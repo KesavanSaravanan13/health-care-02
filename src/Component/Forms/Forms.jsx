@@ -7,7 +7,7 @@ import edit from '../Assests/edit-text.png';
 import ActiveBar from '../ActiveBar/ActiveBar';
 import { useState } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
-import { ErrorMessage, Field, Form, Formik, } from 'formik';
+import {Form, Formik, } from 'formik';
 
 const Forms = () => {
     const [inputFirstName, setinputFirstName] = useState('Jessica');
@@ -66,7 +66,7 @@ const Forms = () => {
                                         handledisable(true, false);
                                     }}>
                                         <Row className='row m-0 p-0 justify-content-between'>
-                                            <Col className='col-1 m-0 p-0 px-1 edit'><img src={edit} className='m-0 p-0' /></Col>
+                                            <Col className='col-1 m-0 p-0 px-1 edit'><img src={edit} className='m-0 p-0' alt='edit'/></Col>
                                             <Col className='col-1 m-0 p-0 px-1 edit'>Edit</Col>
                                         </Row>
                                     </Button>

@@ -1,0 +1,9 @@
+.input-error:focus {
+    border: 0.5px solid red !important;
+    outline-color: red !important;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+}
