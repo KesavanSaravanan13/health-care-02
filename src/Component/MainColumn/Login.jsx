@@ -2,18 +2,36 @@ import * as Yup from 'yup';
 import '../MainColumn/Login.css';
 import LoginField from './LoginField';
 import Logo from '../Assests/frame_small.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Form, Formik } from 'formik';
 import { Col, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
     const [login, setLogin] = useState(true);
     const navigate = useNavigate();
-    const handleLogin = () => {
-        setLogin(!login);
-        navigate('/profile');
-    }
+
+    const handleSubmit = async (values) => {
+        try {
+            const response = await axios.post('https://api.escuelajs.co/api/v1/auth/login', {
+                email: values.email,
+                password: values.password
+            });
+            if (response.data.access_token) {
+                localStorage.setItem('token', response.data.access_token);
+                setLogin(!login);
+                navigate('/profile');
+            } 
+        } catch (err) {
+            console.error('Login error:', err.response ? err.response.data : err.message);
+        }
+    };
+
+    useEffect(() => {
+        localStorage.removeItem('token');
+    }, []);
+<div className=""></div>
 
     return (
         login ? (
@@ -21,7 +39,7 @@ const Login = () => {
                 <Col className='m-0 p-0 col-12 col-md-6 d-flex justify-content-center align-items-center'>
                     <Row className='m-0 p-2 w-75 py-sm-5 sideRow rounded'>
                         <Col className='m-0 p-0 col-12 text-center'>
-                            <img className='m-0 p-0 logoLogin' src={Logo} alt='Logo'/>
+                            <img className='m-0 p-0 logoLogin' src={Logo} alt='Logo' />
                         </Col>
                         <Col className='m-0 p-0 col-12 fs-2 fw-semibold text-light text-center'>
                             "Empowering Healthcare Proffessionals"
@@ -38,22 +56,21 @@ const Login = () => {
                             password: '',
                         }}
                         validationSchema={Yup.object({
-                            email: Yup.string().email('Invalid email address').required('Required').matches(/[a-z0-9][@][a-z][.com]/, 'Enter a valid E-mail'),
+                            email: Yup.string().email('Invalid email address').required('Required'),
                             password: Yup.string()
                                 .required('No password provided.')
                                 .min(8, 'Password is too short - should be 8 chars minimum.')
                                 .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
                         })}
                         onSubmit={values => {
-                            handleLogin();
-                        }
-                        }
+                            handleSubmit(values);
+                        }}
                     >
                         {({ errors, touched }) => (
                             <Form className="m-0 p-0 col-10 loginForm">
                                 <Row className='m-0 p-0 text-center d-flex justify-content-center'>
                                     <Col className='m-0 p-0 pt-4 pb-2'>
-                                        <img className='m-0 p-0 logoLogin' src={Logo} alt='Logo'/>
+                                        <img className='m-0 p-0 logoLogin' src={Logo} alt='Logo' />
                                     </Col>
                                     <h4 className='m-0 p-4 px-3 pb-5 text-start fs-4 flex-fill text-center'>Log In</h4>
                                     <LoginField errors={errors} touched={touched} />
@@ -65,8 +82,8 @@ const Login = () => {
                                 </Row>
                             </Form>
                         )}
-                </Formik>
-            </Col>
+                    </Formik>
+                </Col>
             </Row >
         ) : null
     );
