@@ -1,6 +1,4 @@
 import axios from "axios";
-import { InvalidUser } from "./SweetFires";
-
 
 const AxiosApi = axios.create({
     baseURL: 'https://api.escuelajs.co/api/v1/products',
