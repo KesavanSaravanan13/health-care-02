@@ -2,7 +2,6 @@ import axios from "axios";
 
 const AxiosApi = axios.create({
     baseURL: 'https://api.escuelajs.co/api/v1/products',
-    timeout: 10000,
 });
 
 export const createProducts = (formData) => {
@@ -15,7 +14,6 @@ export const getProductsById = (id) => {
 export const getProducts = () => {
     return AxiosApi.get('');
 };
-
 
 export const updateProducts = (id, formData) => {
     return AxiosApi.put(`/${id}`, formData);
