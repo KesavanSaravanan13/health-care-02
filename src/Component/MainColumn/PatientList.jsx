@@ -7,6 +7,7 @@ import search from '../Assests/search-interface-symbol.png';
 import { useState, useEffect } from 'react';
 import { Button, Col, Row,} from 'react-bootstrap';
 import { Cancel, Error, Success } from './SweetFires';
+import AxiosApi, { getProducts } from './AxiosApi';
 
 const PatientList = () => {
     const [data, setData] = useState();
@@ -23,7 +24,7 @@ const PatientList = () => {
     });
     const handleDisplay = () => setDisplayOn(!displayOn);
     useEffect(() => {
-        axios.get('https://api.escuelajs.co/api/v1/products')
+        getProducts()
             .then(response => {
                 setData(response.data);
                 setLoading(false);
@@ -33,11 +34,11 @@ const PatientList = () => {
                 setLoading(false);
                 setError(true);
             });
-    }, [error]);
+    }, []);
 
     const handleCreate = async () => {
         try {
-            const response = await axios.post('https://api.escuelajs.co/api/v1/products', formData);
+            const response = await AxiosApi.post('', formData);
             setData([...data, response.data]);
             setDisplayOn(false);
             handlePre();

@@ -54,3 +54,37 @@ export const Error = () => {
     );
 }
 
+export const InvalidUser = () => {
+    return(
+        Swal.fire({
+            toast: true,
+            position: "top-end",
+            icon: "info",
+            title: "Invalid User",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            }
+        })
+    );
+}
+export const validUser = () => {
+    return(
+        Swal.fire({
+            toast: true,
+            position: "top-end",
+            icon: "success",
+            title: "Logged in...",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            }
+        })
+    );
+}

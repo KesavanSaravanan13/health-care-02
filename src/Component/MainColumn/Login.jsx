@@ -7,6 +7,7 @@ import { Form, Formik } from 'formik';
 import { Col, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { InvalidUser, validUser } from './SweetFires';
 
 const Login = () => {
     const [login, setLogin] = useState(true);
@@ -21,17 +22,18 @@ const Login = () => {
             if (response.data.access_token) {
                 localStorage.setItem('token', response.data.access_token);
                 setLogin(!login);
+                validUser();
                 navigate('/profile');
-            } 
+            }
         } catch (err) {
             console.error('Login error:', err.response ? err.response.data : err.message);
+            InvalidUser();
         }
     };
 
     useEffect(() => {
         localStorage.removeItem('token');
     }, []);
-<div className=""></div>
 
     return (
         login ? (

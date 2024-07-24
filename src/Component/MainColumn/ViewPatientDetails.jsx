@@ -7,6 +7,7 @@ import { Col, Row } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import { Cancel, Error, Success } from "./SweetFires";
 import { useNavigate, useParams } from "react-router-dom";
+import { deleteProducts, getProducts, getProductsById, updateProducts } from "./AxiosApi";
 
 const ViewPatientDetails = () => {
     const [count, setCount] = useState(0);
@@ -50,7 +51,7 @@ const ViewPatientDetails = () => {
     }
     const handleDelete = async () => {
         try {
-            await axios.delete(`https://api.escuelajs.co/api/v1/products/${patientId}`);
+            await deleteProducts(patientId);
             navigate('/patientlist');
         } catch (error) {
             console.error('Error deleting item:', error);
@@ -59,7 +60,7 @@ const ViewPatientDetails = () => {
 
     const handleSave = async () => {
         try {
-            const response = await axios.put(`https://api.escuelajs.co/api/v1/products/${patientId}`, formData);
+            const response = await updateProducts (patientId, formData);
             setData(response.data);
         } catch (error) {
             console.log(error);
@@ -69,7 +70,7 @@ const ViewPatientDetails = () => {
     useEffect(() => {
         const fetchItem = async () => {
             try {
-                const response = await axios.get(`https://api.escuelajs.co/api/v1/products/${patientId}`);
+                const response = await getProductsById(patientId);
                 setData(response.data);
                 setFormData({
                     title: response.data.title,
