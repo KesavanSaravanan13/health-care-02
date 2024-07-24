@@ -103,7 +103,7 @@ const ViewPatientDetails = () => {
                         <span className="visually-hidden">Loading...</span>
                     </Row>
                 </Col>
-            ) : patient ? (
+            ) : (patient ? (
             <Col className="m-0 p-0 col-11 flex-fill position-relative">
                 <div className="card-info m-0 p-0 vh-100">
                     <Row className="m-0 p-2 p-md-4 vh-100">
@@ -121,7 +121,7 @@ const ViewPatientDetails = () => {
                 {editButton ?
                     <EditColumn formData={formData} handleInputChange={handleInputChange} handleSave={handleSave} setEditbutton={setEditbutton} handleCancel={handleCancel} setCount={setCount} count={count} />
                     : null}
-            </Col> ) :  <Col className="col-11 m-0 p-0 flex-fill ps-5 pt-5 fs-3 fw-semibold">Patient not found</Col>
+            </Col> ) :  <Col className="col-11 m-0 p-0 flex-fill ps-5 pt-5 fs-3 fw-semibold">Patient not found</Col>)
     );
 }
 export default ViewPatientDetails;

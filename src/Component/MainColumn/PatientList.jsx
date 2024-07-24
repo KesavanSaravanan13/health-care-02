@@ -56,6 +56,7 @@ const PatientList = () => {
 
     const handlePre = (e) => {
         setFormData({
+            ...formData,
             title: '',
             price: 0,
             creationAt: '',
