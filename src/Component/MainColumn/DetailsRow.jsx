@@ -16,7 +16,7 @@ const DetailsRow = (props) => {
             <Row className="p-0 py-2 pt-4 m-0 profile">
                 <Col className="col-2 m-0 p-0 me-2 w-auto d-flex align-items-center"><Link to={'/patientlist'} className="text-decoration-none text-black">Patient List</Link></Col>
                 <Col className="col-1 ms-2 w-auto m-0 p-0 fs-3 d-flex align-items-center text-secondary">{'>'}</Col>
-                <Col className="m-0 p-0 ms-3 fs-3 d-flex align-items-center">{`Patient ${props.value.id}'s details`}</Col>
+                <Col className="m-0 p-0 ms-3 fs-3 d-flex align-items-center">{props.value.title}</Col>
             </Row>
             <Row className="p-0 py-2 m-0 patientActive d-flex justify-content-center justify-content-sm-start">
                 <Col className='col-1 m-0 p-0 px-2 docimg '><img src={doc} className='igg' width={80} height={80} alt="Profile"></img></Col>

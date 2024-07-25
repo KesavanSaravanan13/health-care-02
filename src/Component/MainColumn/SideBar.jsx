@@ -9,15 +9,16 @@ import icon5 from '../Assests/Frame 8.png';
 import icon6 from '../Assests/Frame 14.png';
 import icon7 from '../Assests/Frame 10.png';
 import logout from '../Assests/Frame 6.png';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
+import { LoginPrivateRoutes } from './PrivateRoutes';
 
 const Sidebar = () => {
   return (
     <Col className='col-1 m-0 p-0 justify-content-center sidebar'>
       <ul className='m-0 p-0 d-flex justify-content-center flex-wrap sticky-top bottom-0 left-0 vh-100'>
         <Row className='m-0 p-0 align-items-start h-50'>
-          <li className='m-0 p-0'><Link to='/'><LoGo /></Link></li>
+          <li className='m-0 p-0'><LoGo/></li>
           <li className='m-0 p-0'><Link to='/profile'><Icon1 /></Link></li>
           <li className='m-0 p-0'><Link to='/dashboard'><Icon2 /></Link></li>
           <li className='m-0 p-0'><Link to='/patientlist'><Icon3 /></Link></li>
@@ -26,7 +27,9 @@ const Sidebar = () => {
           <li className='m-0 p-0'><Link to='/paitentcarereport'><Icon6 /></Link></li>
           <li className='m-0 p-0'><Link to='/messagecenter'><Icon7 /></Link></li>
         </Row>
-        <li className='m-0 p-0 position-absolute bottom-0'><Link to='/logout'><Logout /></Link></li>
+        <li className='m-0 p-0 position-absolute bottom-0'><Link to='/' onClick={()=>{
+          sessionStorage.removeItem('token');
+        }}><Logout /></Link></li>
       </ul>
     </Col>
   );

@@ -40,7 +40,14 @@
 .dmenu{
     width : 100px !important;
 }
-
+.dropItem:focus{
+    background-color: white !important;
+    color: black !important;
+}
+.dropItem:hover{
+    background-color: #f2f4f7 !important;
+    color: black !important;
+}
 /* .dmenu{
     width: 200px !important;
 } */

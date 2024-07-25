@@ -29,6 +29,7 @@ const ColumnTable = () => {
                 setError(true);
             });
     }, []);
+    let count=0;
     return (
         <Table>
             <thead>
@@ -54,7 +55,7 @@ const ColumnTable = () => {
                     ) : (
                         data?.map(item => (
                             <tr className='m-0 p-0' key={item.id}>
-                                <Td type={'text'} className='col-1' id={item.id} value={item.id} />
+                                <td className='m-0 col-1'>{++count}</td>
                                 <Td type={'text'} className='col-4' id={item.id} value={item.title} />
                                 <Td type={'date'} className='col-3' id={item.id} value={item.creationAt}></Td>
                                 <Td type={'text'} className='col-2' id={item.id} value={item.price} />

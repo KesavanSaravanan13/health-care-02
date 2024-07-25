@@ -1,11 +1,21 @@
-.saveBtn{
-    background-color: #5dcad4;
-    color: white;
+.Update , .Update:focus{
+    background-color: #5dcad4 !important;
+    color: white !important;
     width: 80px !important;
-    border: 1px solid #5dcad4;
-    border-radius: 5px;
+    border: 1px solid #5dcad4 !important;
+    border-radius: 5px !important;
+}
+
+.Cancel , .Cancel:focus{
+    background-color: #ffffff !important;
+    color: red !important;
+    width: 80px !important;
+    border: 2px solid red !important;
+    border-radius: 5px !important;
+    font-weight: 600 !important;
 }
 
 #submitBtn{
     display: none;
 }
+

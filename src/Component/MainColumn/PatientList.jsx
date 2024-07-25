@@ -3,7 +3,7 @@ import SearchBar from './SearchBar';
 import '../MainColumn/PatientList.css';
 import CreateColumn from './CreateColumn';
 import { useState, useEffect } from 'react';
-import { Col} from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import { Error, Success } from './SweetFires';
 import { createProducts, getProducts } from './AxiosApi';
 
@@ -38,9 +38,9 @@ const PatientList = () => {
         try {
             const response = await createProducts(formData);
             setData([...data, response.data]);
+            setTimeout(window.location.reload(), 5000);
             setDisplayOn(false);
             handlePre();
-            console.log(data);
         } catch (error) {
             console.error(error);
             Error();
@@ -61,6 +61,7 @@ const PatientList = () => {
             price: 0,
             creationAt: '',
         });
+        
         Success();
     };
 
@@ -68,8 +69,8 @@ const PatientList = () => {
         <Col className='col-11 m-0 p-2 p-md-4 flex-fill overflow-auto m-0 p-0 position-relative'>
             <SearchBar handleDisplay={handleDisplay} />
             {displayOn ?
-            <CreateColumn formData={formData} handleInputChange={handleInputChange} handleCreate={handleCreate} handleDisplay={handleDisplay} handlePre={handlePre}/> 
-            : null}
+                <CreateColumn formData={formData} handleInputChange={handleInputChange} handleCreate={handleCreate} handleDisplay={handleDisplay} handlePre={handlePre} />
+                : null}
         </Col>
     );
 }
