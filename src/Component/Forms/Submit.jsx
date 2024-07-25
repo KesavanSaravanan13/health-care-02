@@ -1,16 +1,21 @@
+import { Cancel, Updated } from '../MainColumn/SweetFires';
 import './Submit.css';
 import { Button, Row } from 'react-bootstrap';
 
-const Submit = (props) => {
+const Update = (props) => {
     return (
-        <Row className='m-0 p-0 justify-content-end' >
-            <Button type="buttton" value="Save" className="m-0 p-2 saveBtn" onClick={
-                () => {
-                    props.funct(false, true);
+        <Button type="buttton" value="Save" className={`m-2 p-1 ${props.value}`} onClick={
+            () => {
+                props.funct(false, true);
+                if (props.value === 'Update') {
+                    Updated();
+                } else {
+                    Cancel();
                 }
-            } >Save</Button>
-        </Row>
+            }
+        } >{props.value}</Button>
     );
+
 }
 
-export default Submit;
+export default Update;

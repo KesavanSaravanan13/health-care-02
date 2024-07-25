@@ -4,13 +4,28 @@ import doc from '../Assests/jejeje-1.png';
 import dropdown from '../Assests/dropdown_arrow.webp';
 import logout from '../Assests/Frame 6.png';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { Col, DropdownToggle, Row } from 'react-bootstrap';
+import { Col, DropdownToggle, Row, Button } from 'react-bootstrap';
 import password from '../Assests/password.jpg';
 import profile from '../Assests/user.png';
+import { useNavigate } from 'react-router-dom';
 
-const dropdownFunc = (name, alt, label) => {
+const DropdownFunc = (name, alt, label) => {
+    const navigate = useNavigate();
+    if (alt === 'Logout')
+        return (
+            <Dropdown.Item className='p-2 ps-1 m-0 dropItem'onClick={() => {
+                console.log('click');
+                sessionStorage.removeItem('token');
+                navigate('/');
+            }} >
+                <Row className=' p-0 m-0 flex-nowrap' >
+                    <Col className='col-2 m-0 ms-1 p-0'><img src={name} className='m-0 p-0' alt={alt} /></Col>
+                    <Col className='col-10 m-0 p-0 ps-3 tt mt-1'>{label}</Col>
+                </Row>
+            </Dropdown.Item>
+        );
     return (
-        <Dropdown.Item href="" className='p-2 ps-1 m-0'>
+        <Dropdown.Item href="" className='p-2 ps-1 m-0 dropItem' >
             <Row className=' p-0 m-0 flex-nowrap'>
                 <Col className='col-2 m-0 ms-1 p-0'><img src={name} className='m-0 p-0' alt={alt} /></Col>
                 <Col className='col-10 m-0 p-0 ps-3 tt mt-1'>{label}</Col>
@@ -51,9 +66,9 @@ const TopRow = (props) => {
                             </Row>
                         </DropdownToggle>
                         <Dropdown.Menu className='p-0 m-0 dmenu mt-3'>
-                            {dropdownFunc(profile, 'Profile', 'My Profile')}
-                            {dropdownFunc(password, 'Password', 'Change Password')}
-                            {dropdownFunc(logout, 'Logout', 'Log out')}
+                            {DropdownFunc(profile, 'Profile', 'My Profile')}
+                            {DropdownFunc(password, 'Password', 'Change Password')}
+                            {DropdownFunc(logout, 'Logout', 'Log out')}
                         </Dropdown.Menu>
                     </Dropdown>
                 </Col>

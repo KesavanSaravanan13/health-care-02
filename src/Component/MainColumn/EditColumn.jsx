@@ -32,6 +32,7 @@ const EditColumn = ({formData, handleInputChange, handleSave, setEditbutton, han
                                 setEditbutton(false);
                                 if (count > 0) {
                                     Success();
+                                    setCount(0)
                                 } else {
                                     setCount(0);
                                     Cancel();

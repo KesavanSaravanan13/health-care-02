@@ -20,7 +20,7 @@ const Login = () => {
                 password: values.password
             });
             if (response.data.access_token) {
-                localStorage.setItem('token', response.data.access_token);
+                sessionStorage.setItem('token', response.data.access_token);
                 setLogin(!login);
                 validUser();
                 navigate('/profile');
@@ -30,10 +30,6 @@ const Login = () => {
             InvalidUser();
         }
     };
-
-    useEffect(() => {
-        localStorage.removeItem('token');
-    }, []);
 
     return (
         login ? (

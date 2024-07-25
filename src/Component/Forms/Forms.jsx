@@ -1,13 +1,13 @@
 import './Forms.css';
 import * as Yup from 'yup';
-import Save from './Submit';
+import Update from './Submit';
 import FieldForForm from './Field';
 import TopRow from '../TopRow/TopRow';
 import edit from '../Assests/edit-text.png';
 import ActiveBar from '../ActiveBar/ActiveBar';
 import { useState } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
-import {Form, Formik, } from 'formik';
+import { Form, Formik, } from 'formik';
 
 const Forms = () => {
     const [inputFirstName, setinputFirstName] = useState('Jessica');
@@ -62,18 +62,22 @@ const Forms = () => {
                             <Row className='m-0 p-0'>
                                 <Col className='col-8 m-0 p-0 flex-grow-1 pDetails'>Personal Details</Col>
                                 <Col className='col-4 m-0 p-0 text-end'>
-                                    <Button className='m-0 p-0 btn editBtn bg-white' onClick={() => {
+                                    <Button className='m-0 p-0 btn editBtn bg-white' disabled={saveDisable} onClick={() => {
                                         handledisable(true, false);
                                     }}>
                                         <Row className='row m-0 p-0 justify-content-between'>
-                                            <Col className='col-1 m-0 p-0 px-1 edit'><img src={edit} className='m-0 p-0' alt='edit'/></Col>
+                                            <Col className='col-1 m-0 p-0 px-1 edit'><img src={edit} className='m-0 p-0' alt='edit' /></Col>
                                             <Col className='col-1 m-0 p-0 px-1 edit'>Edit</Col>
                                         </Row>
                                     </Button>
                                 </Col>
                             </Row>
                             <FieldForForm errors={errors} touched={touched} valueDisable={valueDisable} />
-                            {saveDisable ? <Save id='submitBtn' funct={handledisable} /> : null}
+                            <Row className='m-0 p-0 justify-content-end' >
+                                {saveDisable ? <Update id='submitBtn' value={'Cancel'} funct={handledisable} /> : null}
+                                {saveDisable ? <Update id='submitBtn' value={'Update'} funct={handledisable} /> : null}
+
+                            </Row>
                         </Form>
                     )}
                 </Formik>
