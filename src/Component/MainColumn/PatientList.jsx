@@ -12,6 +12,7 @@ const PatientList = () => {
     const [displayOn, setDisplayOn] = useState(false);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [count, setCount] = useState(0);
     const [formData, setFormData] = useState({
         title: '',
         price: 0,
@@ -34,9 +35,15 @@ const PatientList = () => {
             });
     }, []);
 
-    const handleCreate = async () => {
+    const handleCreate = async (values) => {
+        const payload = {
+            ...values,
+            description: 'Hi there',
+            categoryId: 1,
+            images: ["https://example.com/product-image.jpg"]
+        };
         try {
-            const response = await createProducts(formData);
+            const response = await createProducts(payload);
             setData([...data, response.data]);
             setTimeout(window.location.reload(), 5000);
             setDisplayOn(false);
@@ -61,15 +68,15 @@ const PatientList = () => {
             price: 0,
             creationAt: '',
         });
-        
-        Success();
     };
 
     return (
         <Col className='col-11 m-0 p-2 p-md-4 flex-fill overflow-auto m-0 p-0 position-relative'>
             <SearchBar handleDisplay={handleDisplay} />
             {displayOn ?
-                <CreateColumn formData={formData} handleInputChange={handleInputChange} handleCreate={handleCreate} handleDisplay={handleDisplay} handlePre={handlePre} />
+                <CreateColumn  setCount={setCount} count={count} header={'Add Details : '} buttonName={'Add'} column={'create'} 
+                offFunc={setDisplayOn} displayOn={displayOn} setFromData={setFormData} formData={formData} 
+                handleInputChange={handleInputChange} handleCreate={handleCreate} handlePre={handlePre} />
                 : null}
         </Col>
     );

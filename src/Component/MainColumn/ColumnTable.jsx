@@ -1,15 +1,9 @@
 import Td from "./Td";
-import axios from "axios";
 import view from '../Assests/view.png';
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { Col, Row, Table } from "react-bootstrap";
-import { type } from "@testing-library/user-event/dist/type";
 
-const ColumnTable = () => {
-    const [data, setData] = useState();
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
+const ColumnTable = ({data,loading}) => {
 
     const tdValue = [
         { colValue: 'col-1', label: 'S.No',type:'text',  },
@@ -17,18 +11,6 @@ const ColumnTable = () => {
         { colValue: 'col-3', label: 'Joined Date',type:'date',  },
         { colValue: 'col-2', label: 'Consumption type',type:'text',  },
     ];
-    useEffect(() => {
-        axios.get('https://api.escuelajs.co/api/v1/products')
-            .then(response => {
-                setData(response.data);
-                setLoading(false);
-            })
-            .catch(response => {
-                console.log(error);
-                setLoading(false);
-                setError(true);
-            });
-    }, []);
     let count=0;
     return (
         <Table>

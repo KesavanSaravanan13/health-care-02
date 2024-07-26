@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import { deleteProducts, getProductsById, updateProducts } from "./AxiosApi";
 import EditColumn from "./EditColumn";
+import CreateColumn from "./CreateColumn";
 
 const ViewPatientDetails = () => {
     const [count, setCount] = useState(0);
@@ -74,9 +75,15 @@ const ViewPatientDetails = () => {
         }
     }
 
-    const handleSave = async () => {
+    const handleSave = async (values) => {
+        const payload = {
+            ...values,
+            description: 'Hi there',
+            categoryId: 1,
+            images: ["https://example.com/product-image.jpg"]
+        };
         try {
-            const response = await updateProducts(patientId, formData);
+            const response = await updateProducts(patientId, payload);
             setData(response.data);
         } catch (error) {
             console.log(error);
@@ -110,6 +117,15 @@ const ViewPatientDetails = () => {
         });
 
     };
+    
+    const handlePre = (e) => {
+        setFormData({
+            ...formData,
+            title: '',
+            price: 0,
+            creationAt: '',
+        });
+    };
 
     const patient = (data.id == patientId);
     return (
@@ -136,7 +152,9 @@ const ViewPatientDetails = () => {
                         </Row>
                     </div>
                     {editButton ?
-                        <EditColumn formData={formData} handleInputChange={handleInputChange} handleSave={handleSave} setEditbutton={setEditbutton} handleCancel={handleCancel} setCount={setCount} count={count} />
+                        <CreateColumn  setCount={setCount} count={count} header={'Update Details : '} buttonName={'Update'} column={'edit'} 
+                offFunc={setEditbutton} displayOn={editButton} setFromData={setFormData} formData={formData} 
+                handleInputChange={handleInputChange} handleCreate={handleSave} handlePre={handlePre} />
                         : null}
                 </Col>) : <Col className="col-11 m-0 p-0 flex-fill ps-5 pt-5 fs-3 fw-semibold">Patient not found</Col>)
     );
