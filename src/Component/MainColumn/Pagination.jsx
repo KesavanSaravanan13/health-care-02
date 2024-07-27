@@ -27,7 +27,7 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
                     </li>
                     {pageNumbers.map(pgNumber => (
                         <li key={pgNumber}
-                            className={` ${currentPage == pgNumber ? 'active' : 'normal'} col-1 w-auto m-0 p-0`} >
+                            className={` ${currentPage == pgNumber ? 'activePG' : 'normal'} col-1 w-auto m-0 p-0`} >
 
                             <a onClick={() => setCurrentPage(pgNumber)}
                                 className='text-decoration-none m-0 p-0'

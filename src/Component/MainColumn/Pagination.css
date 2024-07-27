@@ -6,13 +6,13 @@
     display: inline !important;
 }
 
-.active {
+.activePG {
     background-color: #5cdad4 !important;
     border-radius: 50%;
     color: white !important;
 }
 
-.active a {
+.activePG a {
     color: white !important;
 }
 

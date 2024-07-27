@@ -8,7 +8,7 @@ const ColumnTable = ({data,loading}) => {
     const tdValue = [
         { colValue: 'col-1', label: 'S.No',type:'text',  },
         { colValue: 'col-4', label: 'Treatment Name',type:'text',  },
-        { colValue: 'col-3', label: 'Joined Date',type:'date',  },
+        { colValue: 'col-3', label: 'Joined Date and Time',type:'date',  },
         { colValue: 'col-2', label: 'Consumption type',type:'text',  },
     ];
     let count=0;
