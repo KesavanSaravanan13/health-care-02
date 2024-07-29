@@ -1,9 +1,32 @@
 .pagi a {}
 
+@media screen and (max-width:450px) {
+    .pagi li {
+        padding: 5px 9px !important;
+        display: inline !important;
+    }
+}
 
-.pagi li {
-    padding: 5px 15px !important;
-    display: inline !important;
+@media screen and (min-width:450px) {
+    .pagi li {
+        padding: 5px 12px !important;
+        display: inline !important;
+    }
+    .nex {
+        font-weight: 600 !important;
+        color: #5cdad4 !important;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        margin-left: 5px !important;
+        border: 2px solid rgb(255, 255, 255) !important;
+    }
+    .pre {
+        font-weight: 600 !important;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        margin-right: 5px !important;
+        border: 2px solid rgb(255, 255, 255) !important;
+    }
 }
 
 .activePG {
@@ -24,30 +47,33 @@
     font-weight: 600 !important;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
-    margin-right: 10px !important;
+    border: 2px solid rgb(255, 255, 255) !important;
 }
 
 .pre a {
     color: #5cdad4 !important;
 }
 
-.pre:hover ,
+.pre:hover,
 .nex:hover {
     color: rgb(255, 255, 255) !important;
-    background-color: rgb(92, 218, 212) !important;
+    border: 2px solid rgb(92, 218, 212) !important;
 }
-.pre:hover a,
-.nex:hover a{
+
+/* .pre:hover a,
+.nex:hover a {
     color: rgb(255, 255, 255) !important;
 
-}
-.nex{
+} */
+
+.nex {
     font-weight: 600 !important;
     color: #5cdad4 !important;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-    margin-left: 10px !important;
+    border: 2px solid rgb(255, 255, 255) !important;
 }
+
 .nex a {
     color: #5cdad4 !important;
 }

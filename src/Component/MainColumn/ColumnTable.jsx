@@ -3,17 +3,17 @@ import view from '../Assests/view.png';
 import { Link } from "react-router-dom";
 import { Col, Row, Table } from "react-bootstrap";
 
-const ColumnTable = ({data,loading}) => {
+const ColumnTable = ({ data, loading }) => {
 
     const tdValue = [
-        { colValue: 'col-1', label: 'S.No',type:'text',  },
-        { colValue: 'col-4', label: 'Treatment Name',type:'text',  },
-        { colValue: 'col-3', label: 'Joined Date and Time',type:'date',  },
-        { colValue: 'col-2', label: 'Consumption type',type:'text',  },
+        { colValue: 'col-1', label: 'S.No', type: 'text', },
+        { colValue: 'col-4', label: 'Treatment Name', type: 'text', },
+        { colValue: 'col-3', label: 'Joined Date and Time', type: 'date', },
+        { colValue: 'col-2', label: 'Consumption type', type: 'text', },
     ];
-    let count=0;
+    let count = 0;
     return (
-        <Table>
+        <Table className="m-0 p-0">
             <thead>
                 <tr>
                     {tdValue.map((value, index) => (
@@ -35,15 +35,22 @@ const ColumnTable = ({data,loading}) => {
                             </td>
                         </tr>
                     ) : (
-                        data?.map(item => (
-                            <tr className='m-0 p-0' key={item.id}>
-                                <td className='m-0 col-1'>{++count}</td>
-                                <Td type={'text'} className='col-4' id={item.id} value={item.title} />
-                                <Td type={'date'} className='col-3' id={item.id} value={item.creationAt}></Td>
-                                <Td type={'text'} className='col-2' id={item.id} value={item.price} />
-                                <td className='m-0 text-center col-1'><Link to={`/patientlist/${item.id}`}><img src={view} alt='view' /></Link></td>
-                            </tr>
-                        )))
+                        data.length > 0 ?
+                            data?.map(item => (
+                                <tr className='m-0 p-0 w-100' key={item.id}>
+                                    <td className='m-0 col-1'>{++count}</td>
+                                    <Td type={'text'} className='col-4' id={item.id} value={item.title} />
+                                    <Td type={'date'} className='col-3' id={item.id} value={item.creationAt} />
+                                    <Td type={'text'} className='col-2' id={item.id} value={item.price} />
+                                    <td className='m-0 text-center col-1'><Link to={`/patientlist/${item.id}`}><img src={view} alt='view' /></Link></td>
+                                </tr>
+                            ))
+                            : (
+                                <tr className='m-0 p-0'>
+                                    <td className='m-0 fw-semibold text-center' style={{color:'#5cdad4'}} colSpan={5}>No records for the result, Search Again!!!</td>
+                                </tr>
+                            )
+                    )
                 }
             </tbody>
         </Table>

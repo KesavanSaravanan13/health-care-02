@@ -49,9 +49,6 @@ div.pDetails {
     border: none !important
 }
 
-.editBtn:hover {
-    border: 1px solid #5DCAD4 !important;
-}
 
 .editBtn:focus {
     border: 1px solid #5DCAD4 !important;
