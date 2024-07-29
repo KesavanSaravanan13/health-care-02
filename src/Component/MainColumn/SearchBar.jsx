@@ -18,7 +18,6 @@ const SearchBar = ({ handleDisplay }) => {
     const searchFilter = (newVal) => {
         setLoading(false);
         if (Array.isArray(data)) {
-            console.log(newVal.length);
             if (newVal.trim().length !== 0) {
                 const filteredData = duplicateData.filter((values) => values.title.toLowerCase().includes(newVal.toLowerCase()));
                 setData(filteredData);
