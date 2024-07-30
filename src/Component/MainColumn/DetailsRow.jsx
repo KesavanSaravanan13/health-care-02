@@ -16,11 +16,11 @@ const DetailsRow = (props) => {
             <Row className="p-0 py-2 pt-4 m-0 profile">
                 <Col className="col-2 m-0 p-0 me-2 w-auto d-flex align-items-center"><Link to={'/patientlist'} className="text-decoration-none text-black">Patient List</Link></Col>
                 <Col className="col-1 ms-2 w-auto m-0 p-0 fs-3 d-flex align-items-center text-secondary">{'>'}</Col>
-                <Col className="m-0 p-0 ms-3 fs-3 d-flex align-items-center">{props.value.title}</Col>
+                <Col className="col-12 col-md-8 m-0 p-0 ms-3 fs-3 d-flex align-items-center">{props.value.title}</Col>
             </Row>
-            <Row className="p-0 py-2 m-0 patientActive d-flex justify-content-center justify-content-sm-start">
+            <Row className="p-0 py-2 m-0 patientActive d-flex justify-content-center justify-content-sm-start mt-4 mt-md-0">
                 <Col className='col-1 m-0 p-0 px-2 docimg '><img src={doc} className='igg' width={80} height={80} alt="Profile"></img></Col>
-                <Col className='col-8 col-md-5 m-0 p-0 px-2 d-flex flex-wrap flex-fill mt-3 mt-sm-0'>
+                <Col className='col-8 col-md-5 m-0 p-0 px-2 d-flex flex-wrap flex-fill mt-3 mt-sm-0 text-center text-md-start'>
                     <Row className="m-0 p-0 flex-grow-1">
                         <Col className='col-12 m-0 p-0 name01 h-auto'>
                             <Row className="m-0 p-0">
@@ -29,14 +29,14 @@ const DetailsRow = (props) => {
                             </Row>
                         </Col>
                     </Row>
-                    <Row className="m-0 p-0 w-100">
+                    <Row className="m-0 p-0 w-100 justify-content-center justify-content-md-start">
                         <Col className='col-12 m-0 p-0 px-2 w-auto fw-semibold' style={{ backgroundColor: '#e9f5f7', borderRadius: "5px", height: "fit-content", color: "#5dcad4", fontSize: "12px" }}>{moment(props.value.creationAt).format('lll')}</Col>
                     </Row>
-                    <Row className="m-0 p-0 ">
+                    <Row className="m-0 p-0 w-100 justify-content-center justify-content-md-start">
                         <Col className='col-12 m-0 p-0 name02 h-auto fw-semibold'>{`consumption type : ${props.value.price}`}</Col>
                     </Row>
                 </Col>
-                <Col className='col py-2 py-sm-0 p-0 m-0 d-flex justify-content-end align-items-center pe-md-3 pe-2'>
+                <Col className='col py-2 py-sm-0 p-0 m-0 d-flex mt-3 mt-md-0 justify-content-center justify-content-md-end align-items-center pe-md-3 pe-2'>
                     <Row className="row m-0 p-0 py-2 h-auto" style={{ height: "55px", width: "150px", border: "1px solid lightgray", borderRadius: "10px" }}>
                         <Col className="m-0 p-0 d-flex justify-content-center align-items-center  h-auto">
                             <img src={call} className="m-0 p-0" width={"20px"} height={"20px"} alt="call" />

@@ -15,7 +15,11 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
 
     const goToPrevPage = () => {
         if (currentPg > 1) setCurrentPage(currentPg - 1);
-    };
+    };  
+    
+    const pagesToShow = pageNumbers.filter(
+        (pgNumber) => pgNumber >= currentPage-2 && pgNumber <= currentPage + 2
+    );
 
     useEffect(() => {
         const handleResize = () => {
@@ -43,31 +47,55 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
                 </li>
                 {
                     viewportWidth > 800 ? (
-                        pageNumbers.map(pgNumber => (
-                            <li key={pgNumber}
-                                className={` ${currentPage == pgNumber ? 'activePG' : 'normal'} col-3 w-auto m-0 p-0`} >
-                                <a onClick={() => setCurrentPage(pgNumber)}
-                                    className='text-decoration-none m-0 p-0'
-                                    href='#'>
-                                    {pgNumber}
-                                </a>
-                            </li>
-                        ))) :
-                        (
-                            <>
-                                <li className={`col-1 w-auto m-0 p-0`} >{'. . .'}</li>
-                                <li className={` activePG col-3 w-auto m-0 p-0`} >
-                                    <a onClick={() => setCurrentPage(currentPage)}
+                        pagesToShow.length > 0 ? (
+                            pagesToShow.map(pgNumber => (
+                                <li
+                                    key={pgNumber}
+                                    className={` ${currentPage === pgNumber ? 'activePG' : 'normal'} col-3 w-auto m-0 p-0`}
+                                >
+                                    <a
+                                        onClick={() => setCurrentPage(pgNumber)}
                                         className='text-decoration-none m-0 p-0'
-                                        href='#'>
+                                        href='#'
+                                    >
+                                        {pgNumber}
+                                    </a>
+                                </li>
+                            ))
+                        ) : (
+                            <>
+                                <li className="col-1 w-auto m-0 p-0">{"..."} </li>
+                                <li
+                                    className={`activePG col-3 w-auto m-0 p-0`}
+                                >
+                                    <a
+                                        onClick={() => setCurrentPage(currentPage)}
+                                        className='text-decoration-none m-0 p-0'
+                                        href='#'
+                                    >
                                         {currentPage}
                                     </a>
                                 </li>
-                                <li className={`col-3 w-auto m-0 p-0`} >{'. . .'}</li>
+                                <li className="col-1 w-auto m-0 p-0">{"..."} </li>
                             </>
-
                         )
-                }
+                    ) : (
+                        <>
+                            <li className="col-1 w-auto m-0 p-0">{"..."} </li>
+                            <li
+                                className={`activePG col-3 w-auto m-0 p-0`}
+                            >
+                                <a
+                                    onClick={() => setCurrentPage(currentPage)}
+                                    className='text-decoration-none m-0 p-0'
+                                    href='#'
+                                >
+                                    {currentPage}
+                                </a>
+                            </li>
+                            <li className="col-1 w-auto m-0 p-0">{"..."} </li>
+                        </>
+                    )}
                 <li className=" col-3 m-0 p-0 w-auto nex">
                     <a className="text-decoration-none m-0 p-0 "
                         onClick={goToNextPage}
