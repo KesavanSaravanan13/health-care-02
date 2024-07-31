@@ -1,7 +1,9 @@
 import * as Yup from 'yup';
 import { Button, Col, Row } from "react-bootstrap";
-import { Cancel} from "./SweetFires";
+import { Cancel } from "./SweetFires";
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import store from '../../app/store';
+import { updateData } from '../../actions/actionTypes';
 
 const EditColumn = ({ setFromData, initialValues, handleChange, Submit, header, column, buttonName, handleDisplay, count, setCount }) => {
 
@@ -21,6 +23,7 @@ const EditColumn = ({ setFromData, initialValues, handleChange, Submit, header, 
                         categoryId: 1,
                         images: ["https://example.com/product-image.jpg"]
                     });
+                    store.dispatch(updateData());
                     Submit(values);
                 }}
             >
