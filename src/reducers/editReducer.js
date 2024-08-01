@@ -1,6 +1,7 @@
 
 import * as actions from '../actions/actionTypes';
 import { getProducts } from '../Component/MainColumn/AxiosApi';
+import { initialState } from './getReducers';
 let data=[];
 const response = () => {
     getProducts().then(response =>{
@@ -9,7 +10,6 @@ const response = () => {
 return data;
 };
 
-export const initialState = response();
 
 const editReducer = (state = initialState, action) => {
     switch (action.type) {

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Col, Row, Table } from "react-bootstrap";
 
 const ColumnTable = ({ data, loading }) => {
-
     const tdValue = [
         { colValue: 'col-1', label: 'S.No', type: 'text', },
         { colValue: 'col-4', label: 'Treatment Name', type: 'text', },

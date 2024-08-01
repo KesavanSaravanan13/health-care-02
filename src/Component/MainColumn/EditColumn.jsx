@@ -23,7 +23,6 @@ const EditColumn = ({ setFromData, initialValues, handleChange, Submit, header, 
                         categoryId: 1,
                         images: ["https://example.com/product-image.jpg"]
                     });
-                    store.dispatch(updateData());
                     Submit(values);
                 }}
             >

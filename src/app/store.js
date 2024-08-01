@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import editReducer, { initialState } from "../reducers/editReducer";
-
+import editReducer from "../reducers/editReducer";
+import getReducers from "../reducers/getReducers";
+import { thunk } from "redux-thunk";
 
 const store = configureStore({
     reducer : {
-        // get : getReducer,
+        data : getReducers,
         edit : editReducer
-    }
+    },
+    // middleware:(getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });
 store.subscribe(() => {
     console.log("subcribe line",store.getState());

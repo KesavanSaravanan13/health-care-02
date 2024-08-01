@@ -5,15 +5,20 @@ import sear from '../Assests/search-interface-symbol.png';
 import { useEffect, useRef, useState } from "react";
 import Pagination from "./Pagination";
 import { getProducts } from "./AxiosApi";
+import store from "../../app/store";
+import { getData } from "../../reducers/getReducers";
+import { useSelector } from "react-redux";
 
 const SearchBar = ({ handleDisplay }) => {
+    const dataFromStore = useSelector(state => state.data.data);
+    const load = useSelector(state => state.data.loading);
     const [data, setData] = useState([]);
     const [duplicateData, setDuplicateData] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(load);
     const [currentPage, setCurrentPage] = useState(1);
     const [recordsPerPage, setRecordsPerPage] = useState(5);
     const [selectedValue, setSelectedValue] = useState();
-    const typingTime = useRef(null)
+    const typingTime = useRef(null);
 
     const searchFilter = (newVal) => {
         setLoading(false);
@@ -51,20 +56,20 @@ const SearchBar = ({ handleDisplay }) => {
     };
 
     useEffect(() => {
-        getProducts()
-            .then(response => {
-                if (Array.isArray(response.data)) {
-                    setData(response.data);
-                    setDuplicateData(response.data);
-                } else {
-                    console.error('API response is not an array:', response.data);
-                }
-                setLoading(false);
-            })
-            .catch(() => {
-                alert('There was an error while retrieving the data');
-            });
+        setLoading(true);
+        store.dispatch(getData())
+        .finally(() => {
+            setTimeout(() => {
+                setLoading(false); 
+            }, 1500);
+        });;
+        console.log('inUse Effect');
     }, []);
+
+    useEffect(() => {
+        setDuplicateData(dataFromStore);
+        setData(dataFromStore);
+    }, [dataFromStore]);
 
     const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
