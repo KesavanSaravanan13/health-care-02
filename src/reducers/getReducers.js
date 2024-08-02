@@ -1,6 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import * as actions from '../actions/actionTypes';
-import { produce } from "immer";
 import { getProducts } from "../Component/MainColumn/AxiosApi";
 
 export const initialState = {
@@ -8,7 +6,6 @@ export const initialState = {
     data: [],
     error: ''
 }
-
 
 export const getData = createAsyncThunk('data/getData', async () => {
     try {
@@ -19,7 +16,6 @@ export const getData = createAsyncThunk('data/getData', async () => {
         throw error;
     }
 });
-
 
 const getReducers = createSlice({
     name: 'data',
@@ -41,11 +37,7 @@ const getReducers = createSlice({
     }
 });
 
-
 export default getReducers.reducer;
-
-
-
 
 // const getReducers = (state = initialState, action) => {
 //     switch (action.type) {

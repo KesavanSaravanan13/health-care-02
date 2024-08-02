@@ -4,17 +4,19 @@ import ColumnTable from "./ColumnTable";
 import sear from '../Assests/search-interface-symbol.png';
 import { useEffect, useRef, useState } from "react";
 import Pagination from "./Pagination";
-import { getProducts } from "./AxiosApi";
-import store from "../../app/store";
-import { getData } from "../../reducers/getReducers";
-import { useSelector } from "react-redux";
+// import { getProducts } from "./AxiosApi";
+// import store from "../../app/store";
+// import { getData } from "../../reducers/getReducers";
+// import { useSelector } from "react-redux";
+import { useGetDataQuery } from "../../reducers/apiSlice";
 
 const SearchBar = ({ handleDisplay }) => {
-    const dataFromStore = useSelector(state => state.data.data);
-    const load = useSelector(state => state.data.loading);
+    // const dataFromStore = useSelector(state => state.data.data);
+    // const load = useSelector(state => state.data.loading);
+    const { data: dataFromStore, isLoading,refetch } = useGetDataQuery();
     const [data, setData] = useState([]);
     const [duplicateData, setDuplicateData] = useState([]);
-    const [loading, setLoading] = useState(load);
+    const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [recordsPerPage, setRecordsPerPage] = useState(5);
     const [selectedValue, setSelectedValue] = useState();
@@ -55,18 +57,28 @@ const SearchBar = ({ handleDisplay }) => {
         setRecordsPerPage(event.target.value);
     };
 
+    // useEffect(() => {
+    //     setLoading(true);
+    // store.dispatch(getData())
+    // .finally(() => {
+    //     setTimeout(() => {
+    //         setLoading(false); 
+    //     }, 1500);
+    //     setLoading(false); 
+    // });
+    // }, []);
+
     useEffect(() => {
-        setLoading(true);
-        store.dispatch(getData())
-        .finally(() => {
-            setTimeout(() => {
-                setLoading(false); 
-            }, 1500);
-        });;
-        console.log('inUse Effect');
+        setDuplicateData(dataFromStore);
+        setData(dataFromStore);
     }, []);
 
     useEffect(() => {
+        refetch();
+        setLoading(true);
+        setTimeout(()=>{
+            setLoading(false);
+        },1500);
         setDuplicateData(dataFromStore);
         setData(dataFromStore);
     }, [dataFromStore]);

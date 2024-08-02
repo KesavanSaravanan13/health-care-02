@@ -6,12 +6,11 @@ import { useState, useEffect } from 'react';
 import { Col } from 'react-bootstrap';
 import { Error, Success } from './SweetFires';
 import { createProducts, getProducts } from './AxiosApi';
+import { useCreateDataMutation } from '../../reducers/apiSlice';
 
 const PatientList = () => {
-    const [data, setData] = useState();
+    const [createData] = useCreateDataMutation();
     const [displayOn, setDisplayOn] = useState(false);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [count, setCount] = useState(0);
     const [formData, setFormData] = useState({
         title: '',
@@ -22,18 +21,6 @@ const PatientList = () => {
         images: ["https://example.com/product-image.jpg"]
     });
     const handleDisplay = () => setDisplayOn(!displayOn);
-    useEffect(() => {
-        getProducts()
-            .then(response => {
-                setData(response.data);
-                setLoading(false);
-            })
-            .catch(response => {
-                console.log(error);
-                setLoading(false);
-                setError(true);
-            });
-    }, []);
 
     const handleCreate = async (values) => {
         const payload = {
@@ -43,8 +30,7 @@ const PatientList = () => {
             images: ["https://example.com/product-image.jpg"]
         };
         try {
-            const response = await createProducts(payload);
-            setData([...data, response.data]);
+            const response = await createData(payload);
             setTimeout(window.location.reload(), 5000);
             setDisplayOn(false);
             handlePre();

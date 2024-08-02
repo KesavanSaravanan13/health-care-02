@@ -8,10 +8,15 @@ import { useNavigate, useParams } from "react-router-dom";
 import { deleteProducts, getProductsById, updateProducts } from "./AxiosApi";
 import EditColumn from "./EditColumn";
 import CreateColumn from "./CreateColumn";
+import { useDeleteDatabyIdMutation, useGetDataByIdQuery, useGetDataQuery, useUpdateDatabyIdMutation } from "../../reducers/apiSlice";
 
 const ViewPatientDetails = () => {
+    // const {data:dataFromStore} = useGetDataByIdQuery(patientId);
     const [count, setCount] = useState(0);
     const { patientId } = useParams();
+    const { refetch } = useGetDataByIdQuery(patientId);
+    const [updateData] = useUpdateDatabyIdMutation();
+    const [deleteData] = useDeleteDatabyIdMutation();
     const navigate = useNavigate();
     const [data, setData] = useState('');
     const [editButton, setEditbutton] = useState(false);
@@ -68,7 +73,8 @@ const ViewPatientDetails = () => {
     }
     const handleDelete = async () => {
         try {
-            await deleteProducts(patientId);
+            // await deleteProducts(patientId);
+            await deleteData(patientId);
             navigate('/patientlist');
         } catch (error) {
             console.error('Error deleting item:', error);
@@ -83,31 +89,50 @@ const ViewPatientDetails = () => {
             images: ["https://example.com/product-image.jpg"]
         };
         try {
-            const response = await updateProducts(patientId, payload);
+            const response = await updateData({ id: patientId, ...payload } );
             setData(response.data);
+            console.log(response.data);
+            
         } catch (error) {
             console.log(error);
         }
     };
 
     useEffect(() => {
-        const fetchItem = async () => {
-            try {
-                const response = await getProductsById(patientId);
-                setData(response.data);
+        // const fetchItem = async () => {
+        // try {
+        //     const response = await getProductsById(patientId);
+        //     setData(response.data);
+        //     setFormData({
+        //         title: response.data.title,
+        //         creationAt: response.data.creationAt,
+        //         price: response.data.price
+        //     });
+        //     setLoading(false);
+        // } 
+        refetch()
+            .then(response => {
+                const fetchedData = response.data || {};
+                setData(fetchedData);
                 setFormData({
-                    title: response.data.title,
-                    creationAt: response.data.creationAt,
-                    price: response.data.price
+                    title: fetchedData.title || '',
+                    creationAt: fetchedData.creationAt || '',
+                    price: fetchedData.price || ''
                 });
+
+                console.log(fetchedData.title);
                 setLoading(false);
-            } catch (error) {
+            })
+            .catch(error => {
                 setError(error);
                 setLoading(false);
-            }
-        }
-        fetchItem();
-    }, [patientId]);
+            })
+
+        console.log(data);
+
+        // }
+        // fetchItem();
+    }, [patientId, refetch]);
 
     const handleInputChange = (e) => {
         setCount(count + 1);
@@ -117,7 +142,7 @@ const ViewPatientDetails = () => {
         });
 
     };
-    
+
     const handlePre = (e) => {
         setFormData({
             ...formData,
@@ -152,9 +177,9 @@ const ViewPatientDetails = () => {
                         </Row>
                     </div>
                     {editButton ?
-                        <CreateColumn  setCount={setCount} count={count} header={'Update Details : '} buttonName={'Update'} column={'edit'} 
-                offFunc={setEditbutton} displayOn={editButton} setFromData={setFormData} formData={formData} 
-                handleInputChange={handleInputChange} handleCreate={handleSave} handlePre={handlePre} />
+                        <CreateColumn setCount={setCount} count={count} header={'Update Details : '} buttonName={'Update'} column={'edit'}
+                            offFunc={setEditbutton} displayOn={editButton} setFromData={setFormData} formData={formData}
+                            handleInputChange={handleInputChange} handleCreate={handleSave} handlePre={handlePre} />
                         : null}
                 </Col>) : <Col className="col-11 m-0 p-0 flex-fill ps-5 pt-5 fs-3 fw-semibold">Patient not found</Col>)
     );
