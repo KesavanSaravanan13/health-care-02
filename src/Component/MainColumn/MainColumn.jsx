@@ -10,29 +10,53 @@ const MainColumn = (props) => {
     if (props.message === 'Profile') {
         return (
             <Row className='m-0 p-0 vh-100 flex-nowrap flex-fill'>
-                <Sidebar />
+                <Sidebar value={'profile'} />
                 <Profile />
             </Row >
         );
     } else if (props.message === 'Dashboard') {
         return (
             <Row className='m-0 p-0 vh-100 flex-nowrap flex-fill'>
-                <Sidebar />
+                <Sidebar  value={'Dashboard'}/>
                 <Dashboard />
             </Row >
         );
     } else if (props.message === 'PatientList') {
         return (
             <Row className='m-0 p-0 vh-100 flex-nowrap flex-fill'>
-                <Sidebar />
+                <Sidebar value={'PatientList'} />
                 <PatientList />
             </Row >
         );
     } else if (props.message === 'ViewPatientDetails') {
         return (
             <Row className='m-0 p-0 vh-100 flex-nowrap flex-fill'>
-                <Sidebar />
+                <Sidebar value={'ViewPatientDetails'} />
                 <ViewPatientDetails />
+            </Row >
+        );
+    }else if (props.message === '') {
+        return (
+            <Row className='m-0 p-0 vh-100 flex-nowrap flex-fill'>
+                <Sidebar value={''} />
+            </Row >
+        );
+    }else if (props.message === '') {
+        return (
+            <Row className='m-0 p-0 vh-100 flex-nowrap flex-fill'>
+                <Sidebar value={''} />
+            </Row >
+        );
+    }else if (props.message === '') {
+        return (
+            <Row className='m-0 p-0 vh-100 flex-nowrap flex-fill'>
+                <Sidebar value={''} />
+            </Row >
+        );
+    }else if (props.message === '') {
+        return (
+            <Row className='m-0 p-0 vh-100 flex-nowrap flex-fill'>
+                <Sidebar value={''} />
             </Row >
         );
     }
