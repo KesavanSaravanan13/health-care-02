@@ -1,10 +1,28 @@
+import React from "react";
 import Td from "./Td";
 import view from '../Assests/view.png';
 import { Link } from "react-router-dom";
 import { Col, Row, Table } from "react-bootstrap";
 
-const ColumnTable = ({ data, loading }) => {
-    const tdValue = [
+interface IColumnLabels{
+    colValue: string;
+    label: string;
+    type: string;
+}
+
+export type DataItem = {
+    id: string;
+    title: string;
+    creationAt: string;
+    price: number;
+};
+
+type ColumnTableProps = {
+    data: DataItem[];
+    loading: boolean;
+};
+const ColumnTable: React.FC<ColumnTableProps> = ({ data, loading }) => {
+    const tdValue : IColumnLabels[] = [
         { colValue: 'col-1', label: 'S.No', type: 'text', },
         { colValue: 'col-4', label: 'Treatment Name', type: 'text', },
         { colValue: 'col-3', label: 'Joined Date and Time', type: 'date', },
@@ -46,7 +64,7 @@ const ColumnTable = ({ data, loading }) => {
                             ))
                             : (
                                 <tr className='m-0 p-0'>
-                                    <td className='m-0 fw-semibold text-center' style={{color:'#5cdad4'}} colSpan={5}>No records for the result, Search Again!!!</td>
+                                    <td className='m-0 fw-semibold text-center' style={{ color: '#5cdad4' }} colSpan={5}>No records for the result, Search Again!!!</td>
                                 </tr>
                             )
                     )

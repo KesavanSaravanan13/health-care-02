@@ -1,11 +1,12 @@
 import TopRow from "../TopRow/TopRow";
 import Pagination from "./Pagination";
-import ColumnTable from "./ColumnTable";
+// import ColumnTable from "./ColumnTable";
 import sear from '../Assests/search-interface-symbol.png';
 import { Button, Col, Row } from "react-bootstrap";
 import React, { useEffect, useRef, useState } from "react";
 import { useGetDataQuery } from "../../reducers/apiSlice";
 import { string } from "yup";
+import ColumnTable, { DataItem } from "./ColumnTable.tsx";
 // import { getProducts } from "./AxiosApi";
 // import store from "../../app/store";
 // import { getData } from "../../reducers/getReducers";
@@ -13,22 +14,20 @@ import { string } from "yup";
 interface SearchBarProps {
     handleDisplay: () => void;
 }
-interface DataType {
-    title: string;
-}
+
 const SearchBar : React.FC<SearchBarProps> = ({ handleDisplay }) => {
     // const dataFromStore = useSelector(state => state.data.data);
     // const load = useSelector(state => state.data.loading);
-    const { data: dataFromStore , isLoading, refetch } = useGetDataQuery(undefined);
-    const [data, setData] = useState<DataType[]>([]);
-    const [duplicateData, setDuplicateData] = useState<DataType[]>([]);
+    const { data: dataFromStore , isLoading, refetch } = useGetDataQuery([]);
+    const [data, setData] = useState<DataItem[]>([]);
+    const [duplicateData, setDuplicateData] = useState<DataItem[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [recordsPerPage, setRecordsPerPage] = useState<number>(5);
     const [selectedValue, setSelectedValue] = useState<number>(5);
     const typingTime = useRef<NodeJS.Timeout | null>(null);
 
-    const searchFilter = (newVal) => {
+    const searchFilter = (newVal : string) => {
         setLoading(false);
         if (Array.isArray(data)) {
             if (newVal.trim().length !== 0) {
@@ -41,12 +40,12 @@ const SearchBar : React.FC<SearchBarProps> = ({ handleDisplay }) => {
             console.error('Data is not an array:', data);
         }
     };
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e : React.KeyboardEvent<HTMLInputElement> ) => {
         if (e.key === 'Enter') {
-            searchFilter(e.target.value);
+            searchFilter(e.currentTarget.value);
         }
     }
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newVal = e.target.value;
         if (typingTime.current) {
             clearTimeout(typingTime.current);
