@@ -1,8 +1,23 @@
+import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { ErrorMessage, Field } from "formik";
 
-const FieldForForm = ({ errors, touched, valueDisable }) => {
-    const fieldData = [
+interface IFieldForFormProps {
+    errors: { [key: string]: string | undefined };
+    touched: { [key: string]: boolean | undefined };
+    valueDisable: boolean;
+}
+
+interface IFormLabels {
+    label: string;
+    name: string;
+    placeholder: string;
+    type: string;
+    options?: string[];
+}
+
+const FieldForForm: React.FC<IFieldForFormProps> = ({ errors, touched, valueDisable }) => {
+    const fieldData: IFormLabels[] = [
         { label: "First Name", name: "firstName", placeholder: "First Name", type: "text" },
         { label: "Last Name", name: "lastName", placeholder: "Last Name", type: "text" },
         { label: "Email Address", name: "email", placeholder: "Email Address", type: "email" },
@@ -23,7 +38,7 @@ const FieldForForm = ({ errors, touched, valueDisable }) => {
                     {field.type === "select" ? (
                         <Field name={field.name} as='select' className={`m-0 col-12 gdiv d-flex align-items-center w-100 h-auto p-2 ${errors[field.name] && touched[field.name] ? 'input-error' : ''}`} disabled={valueDisable}>
                             <option>{field.placeholder}</option>
-                            {field.options.map(option => (
+                            {(field.options || []).map(option => (
                                 <option key={option} value={option}>{option}</option>
                             ))}
                         </Field>

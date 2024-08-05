@@ -1,26 +1,32 @@
-import { Button, Col, Row } from "react-bootstrap";
 import TopRow from "../TopRow/TopRow";
+import Pagination from "./Pagination";
 import ColumnTable from "./ColumnTable";
 import sear from '../Assests/search-interface-symbol.png';
-import { useEffect, useRef, useState } from "react";
-import Pagination from "./Pagination";
+import { Button, Col, Row } from "react-bootstrap";
+import React, { useEffect, useRef, useState } from "react";
+import { useGetDataQuery } from "../../reducers/apiSlice";
+import { string } from "yup";
 // import { getProducts } from "./AxiosApi";
 // import store from "../../app/store";
 // import { getData } from "../../reducers/getReducers";
 // import { useSelector } from "react-redux";
-import { useGetDataQuery } from "../../reducers/apiSlice";
-
-const SearchBar = ({ handleDisplay }) => {
+interface SearchBarProps {
+    handleDisplay: () => void;
+}
+interface DataType {
+    title: string;
+}
+const SearchBar : React.FC<SearchBarProps> = ({ handleDisplay }) => {
     // const dataFromStore = useSelector(state => state.data.data);
     // const load = useSelector(state => state.data.loading);
-    const { data: dataFromStore, isLoading,refetch } = useGetDataQuery();
-    const [data, setData] = useState([]);
-    const [duplicateData, setDuplicateData] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [recordsPerPage, setRecordsPerPage] = useState(5);
-    const [selectedValue, setSelectedValue] = useState();
-    const typingTime = useRef(null);
+    const { data: dataFromStore , isLoading, refetch } = useGetDataQuery(undefined);
+    const [data, setData] = useState<DataType[]>([]);
+    const [duplicateData, setDuplicateData] = useState<DataType[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [recordsPerPage, setRecordsPerPage] = useState<number>(5);
+    const [selectedValue, setSelectedValue] = useState<number>(5);
+    const typingTime = useRef<NodeJS.Timeout | null>(null);
 
     const searchFilter = (newVal) => {
         setLoading(false);
@@ -76,9 +82,9 @@ const SearchBar = ({ handleDisplay }) => {
     useEffect(() => {
         refetch();
         setLoading(true);
-        setTimeout(()=>{
+        setTimeout(() => {
             setLoading(false);
-        },1500);
+        }, 1500);
         setDuplicateData(dataFromStore);
         setData(dataFromStore);
     }, [dataFromStore]);
@@ -119,7 +125,7 @@ const SearchBar = ({ handleDisplay }) => {
                         <select className="m-0 p-1 px-2 fw-semibold" value={selectedValue} onChange={handleSelectChange}>
                             {
                                 numberValue.map((v, index) => (
-                                    <option type="Number" value={v * 5} key={index}>{v * 5}</option>
+                                    <option value={v * 5} key={index}>{v * 5}</option>
                                 ))
                             }
                         </select>

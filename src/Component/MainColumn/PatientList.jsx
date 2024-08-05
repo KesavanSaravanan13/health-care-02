@@ -1,5 +1,5 @@
 import moment from 'moment';
-import SearchBar from './SearchBar';
+import SearchBar from './SearchBar.tsx';
 import '../MainColumn/PatientList.css';
 import CreateColumn from './CreateColumn';
 import { useState, useEffect } from 'react';

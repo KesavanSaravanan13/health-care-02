@@ -1,11 +1,28 @@
+import React from 'react';
 import * as Yup from 'yup';
 import { Button, Col, Row } from "react-bootstrap";
 import { Cancel } from "./SweetFires";
-import { ErrorMessage, Field, Form, Formik } from "formik";
-import store from '../../app/store';
-import { updateData } from '../../actions/actionTypes';
+import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
 
-const EditColumn = ({ setFromData, initialValues, handleChange, Submit, header, column, buttonName, handleDisplay, count, setCount }) => {
+interface FormValues {
+    title: string;
+    price: number;
+}
+
+interface EditColumnProps {
+    setFromData: (data: FormValues & { description: string; categoryId: number; images: string[] }) => void;
+    initialValues: FormValues;
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>, setFieldValue: FormikHelpers<FormValues>['setFieldValue']) => void;
+    Submit: (values: FormValues) => void;
+    header: string;
+    column: string;
+    buttonName: string;
+    handleDisplay: () => void;
+    count: number;
+    setCount: (count: number) => void;
+}
+
+const EditColumn : React.FC<EditColumnProps> = ({ setFromData, initialValues, handleChange, Submit, header, column, buttonName, handleDisplay, count, setCount }) => {
 
     return (
         <Col className="col-12 m-0 p-2 p-md-4 flex-fill d-flex justify-content-center align-items-center position-absolute overlay"
@@ -36,7 +53,7 @@ const EditColumn = ({ setFromData, initialValues, handleChange, Submit, header, 
                                 </Col>
                                 <Col className="col-sm-6m-0 p-0">
                                     <Field className={`p-2 m-0 h-auto ${errors.title && touched.title ? 'input-error' : ''}`}
-                                        onChange={(e) => handleChange(e, setFieldValue)} name="title" />
+                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setFieldValue)} name="title" />
                                     <ErrorMessage name='title' component="div" className="error-message" />
                                 </Col>
                             </Row>
@@ -48,7 +65,7 @@ const EditColumn = ({ setFromData, initialValues, handleChange, Submit, header, 
                                 </Col>
                                 <Col className="col-sm-6 m-0 p-0">
                                     <Field className={`p-2 m-0 h-auto ${errors.price && touched.price ? 'input-error' : ''}`}
-                                        onChange={(e) => handleChange(e, setFieldValue)} type="Number" name="price" />
+                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setFieldValue)} type="Number" name="price" />
                                     <ErrorMessage name='price' component="div" className="error-message" />
                                 </Col>
                             </Row>

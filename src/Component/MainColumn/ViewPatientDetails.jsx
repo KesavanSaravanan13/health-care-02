@@ -6,7 +6,6 @@ import { Col, Row } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import { deleteProducts, getProductsById, updateProducts } from "./AxiosApi";
-import EditColumn from "./EditColumn";
 import CreateColumn from "./CreateColumn";
 import { useDeleteDatabyIdMutation, useGetDataByIdQuery, useGetDataQuery, useUpdateDatabyIdMutation } from "../../reducers/apiSlice";
 

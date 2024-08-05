@@ -1,23 +1,39 @@
 import './Forms.css';
+import React from 'react';
 import * as Yup from 'yup';
 import Update from './Submit';
-import FieldForForm from './Field';
+import FieldForForm from './Field.tsx';
 import TopRow from '../TopRow/TopRow';
 import edit from '../Assests/edit-text.png';
 import ActiveBar from '../ActiveBar/ActiveBar';
 import { useState } from 'react';
+import { Form, Formik, FormikProps, } from 'formik';
 import { Button, Col, Row } from 'react-bootstrap';
-import { Form, Formik, } from 'formik';
 
-const Forms = () => {
-    const [inputFirstName, setinputFirstName] = useState('Jessica');
-    const [inputMail, setinputMail] = useState('jessica@gmail.com');
-    const [valueDisable, setvalueDisable] = useState(true);
-    const [saveDisable, setSaveDisable] = useState(false);
-    const handledisable = (value01, value02) => {
+interface IFormsTypes {
+    firstName: string;
+    lastName: string;
+    email: string;
+    gender: string;
+    dob: string;
+    phoneNumber: string;
+    address: string;
+    city: string;
+    state: string;
+    postalCode: string;
+}
+const Forms : React.FC = () => {
+    const [inputFirstName, setinputFirstName] = useState<string>('Jessica');
+    const [inputMail, setinputMail] = useState<string>('jessica@gmail.com');
+    const [valueDisable, setvalueDisable] = useState<boolean>(true);
+    const [saveDisable, setSaveDisable] = useState<boolean>(false);
+    const handledisable = (value01: boolean, value02: boolean) => {
         setvalueDisable(!value01);
         setSaveDisable(!value02);
     }
+    const handleSubmit = (values: IFormsTypes) => {
+        console.log('Form values:', values);
+    };
     return (
         <Col className='col-12 m-0 p-0 pb-5'>
             <Row className="p-0 m-0 justify-content-end FirstRow flex-wrap">
@@ -56,8 +72,9 @@ const Forms = () => {
                         state: Yup.string().required('Required'),
                         postalCode: Yup.number().min(6, 'Postal Code must be atleast 6 digit').required('Required'),
                     })}
+                    onSubmit={handleSubmit}
                 >
-                    {({ errors, touched }) => (
+                    {({ errors, touched }: FormikProps<IFormsTypes>) => (
                         <Form className="m-0 p-0 col-12" id="formEle">
                             <Row className='m-0 p-0'>
                                 <Col className='col-8 m-0 p-0 flex-grow-1 pDetails'>Personal Details</Col>
@@ -76,7 +93,6 @@ const Forms = () => {
                             <Row className='m-0 p-0 justify-content-end' >
                                 {saveDisable ? <Update id='submitBtn' value={'Cancel'} funct={handledisable} /> : null}
                                 {saveDisable ? <Update id='submitBtn' value={'Update'} funct={handledisable} /> : null}
-
                             </Row>
                         </Form>
                     )}
