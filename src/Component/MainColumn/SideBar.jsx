@@ -37,16 +37,16 @@ const Sidebar = (props) => {
             props.value === 'PatientList' ? <Icon03 /> : <Icon3 />
           }</Link></li>
           <li className='m-0 p-0'><Link to='/providers'>{
-            props.value === '' ? <Icon04 /> : <Icon4 />
+            props.value === 'Providers' ? <Icon04 /> : <Icon4 />
           }</Link></li>
           <li className='m-0 p-0'><Link to='/clicnicaltrails'>{
-            props.value === '' ? <Icon05 /> : <Icon5 />
+            props.value === 'ClinicalTrails' ? <Icon05 /> : <Icon5 />
           }</Link></li>
           <li className='m-0 p-0'><Link to='/paitentcarereport'>{
-            props.value === '' ? <Icon06 /> : <Icon6 />
+            props.value === 'PatientCareReport' ? <Icon06 /> : <Icon6 />
           }</Link></li>
           <li className='m-0 p-0'><Link to='/messagecenter'>{
-            props.value === '' ? <Icon07 /> : <Icon7 />
+            props.value === 'MessageCenter' ? <Icon07 /> : <Icon7 />
           }</Link></li>
         </Row>
         <li className='m-0 p-0 position-absolute bottom-0'><Link to='/' onClick={() => {

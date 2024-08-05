@@ -18,10 +18,10 @@ function App() {
           <Route path='/dashboard' element={<MainColumn message={'Dashboard'} />} />
           <Route path='/patientlist' element={<MainColumn message={'PatientList'} />} />
           <Route path="/patientlist/:patientId" element={<MainColumn message={'ViewPatientDetails'} />} />
-          <Route path='/providers' />
-          <Route path='/clicnicaltrails' />
-          <Route path='/paitentcarereport' />
-          <Route path='/messagecenter' />
+          <Route path='/providers' element={<MainColumn message={'Providers'}/>} />
+          <Route path='/clicnicaltrails' element={<MainColumn message={'ClinicalTrails'}/>}  />
+          <Route path='/paitentcarereport' element={<MainColumn message={'PatientCareReport'}/>}  />
+          <Route path='/messagecenter' element={<MainColumn message={'MessageCenter'}/>}  />
         </Route>
       </Routes>
     </Router>
