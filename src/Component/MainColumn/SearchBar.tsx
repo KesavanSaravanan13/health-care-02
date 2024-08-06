@@ -107,7 +107,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ handleDisplay }) => {
                         <select className="m-0 p-1 px-2 fw-semibold" value={selectedValue} onChange={handleSelectChange}>
                             {
                                 numberValue.map((v, index) => (
-                                    <option value={v * 5} key={index}>{v * 5}</option>
+                                    <option className="m-0 p-0 py-1" value={v * 5} key={index}>{v * 5}</option>
                                 ))
                             }
                         </select>
