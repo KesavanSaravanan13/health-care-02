@@ -17,9 +17,8 @@ import icon06 from '../Assests/Frame 29.png';
 import icon02 from '../Assests/Frame 16.png';
 import icon01 from '../Assests/Frame 30.png';
 import logout from '../Assests/Frame 6.png';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Col, Row } from 'react-bootstrap';
-import { LoginPrivateRoutes } from './PrivateRoutes';
 
 const Sidebar = (props) => {
   return (
@@ -34,7 +33,7 @@ const Sidebar = (props) => {
             props.value === 'Dashboard' ? <Icon02 /> : <Icon2 />
           }</Link></li>
           <li className='m-0 p-0'><Link to='/patientlist'>{
-            props.value === 'PatientList' ? <Icon03 /> : <Icon3 />
+            props.value === 'PatientList' || 'ViewPatientDetails' ? <Icon03 /> : <Icon3 />
           }</Link></li>
           <li className='m-0 p-0'><Link to='/providers'>{
             props.value === 'Providers' ? <Icon04 /> : <Icon4 />

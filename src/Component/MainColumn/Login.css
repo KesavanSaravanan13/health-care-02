@@ -1,6 +1,5 @@
 .loginRow {
-    /* background-image: url('https://wallpapers.com/images/hd/the-good-doctor-surgical-tools-cspvy7448lvq8qx6.jpg'); */
-    background-image: linear-gradient(to bottom , #0c1f29,#487182);
+    background-image: linear-gradient(to bottom, #0c1f29, #487182);
 }
 
 
@@ -29,9 +28,18 @@ img.logoLogin {
     }
 }
 
-button{
+button {
     background-color: #5dcad4;
     width: 63%;
     border: none;
     outline: none;
+}
+
+.fontS {
+    font-size: 12px !important;
+}
+
+.submit {
+    background-color: #5dcad4 !important;
+    width: 63% !important;
 }

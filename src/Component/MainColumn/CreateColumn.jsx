@@ -1,8 +1,6 @@
-
-import { Cancel, Success } from "./SweetFires";
 import moment from 'moment';
 import EditColumn from './EditColumn.tsx';
-
+import { Cancel, Success } from "./SweetFires";
 
 const CreateColumn = ({ header, buttonName, column, setFromData, offFunc, formData, displayOn, handleCreate, handlePre, handleSave, count, setCount }) => {
     if (column === 'edit') {
@@ -25,8 +23,12 @@ const CreateColumn = ({ header, buttonName, column, setFromData, offFunc, formDa
             } else {
                 Cancel();
             }
-            setCount(0);
-            handleDisplay();
+            setTimeout(() => {
+                handleDisplay();
+            }, 1000)
+            setTimeout(() => {
+                setCount(0);
+            }, 2000)
         }
         const handleDisplay = () => {
             offFunc(!displayOn);

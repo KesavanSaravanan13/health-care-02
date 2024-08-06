@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import '../MainColumn/Pagination.css';
+import { useEffect, useState } from 'react';
 
 const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
     const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
@@ -15,10 +15,10 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
 
     const goToPrevPage = () => {
         if (currentPg > 1) setCurrentPage(currentPg - 1);
-    };  
-    
+    };
+
     const pagesToShow = pageNumbers.filter(
-        (pgNumber) => pgNumber >= currentPage-2 && pgNumber <= currentPage + 2
+        (pgNumber) => pgNumber >= currentPage - 2 && pgNumber <= currentPage + 2
     );
 
     useEffect(() => {

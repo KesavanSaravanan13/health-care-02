@@ -1,16 +1,15 @@
 import Swal from "sweetalert2";
 import DetailsRow from "./DetailsRow";
 import del from '../Assests/delete (1).png';
+import '../MainColumn/EditColumn.css';
 import '../MainColumn/ViewPatientDetails.css';
 import { Col, Row } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
-import { deleteProducts, getProductsById, updateProducts } from "./AxiosApi";
 import CreateColumn from "./CreateColumn";
-import { useDeleteDatabyIdMutation, useGetDataByIdQuery, useGetDataQuery, useUpdateDatabyIdMutation } from "../../reducers/apiSlice";
+import { useDeleteDatabyIdMutation, useGetDataByIdQuery, useUpdateDatabyIdMutation } from "../../reducers/apiSlice";
 
 const ViewPatientDetails = () => {
-    // const {data:dataFromStore} = useGetDataByIdQuery(patientId);
     const [count, setCount] = useState(0);
     const { patientId } = useParams();
     const { refetch } = useGetDataByIdQuery(patientId);
@@ -72,7 +71,6 @@ const ViewPatientDetails = () => {
     }
     const handleDelete = async () => {
         try {
-            // await deleteProducts(patientId);
             await deleteData(patientId);
             navigate('/patientlist');
         } catch (error) {
@@ -88,27 +86,15 @@ const ViewPatientDetails = () => {
             images: ["https://example.com/product-image.jpg"]
         };
         try {
-            const response = await updateData({ id: patientId, ...payload } );
+            const response = await updateData({ id: patientId, ...payload });
             setData(response.data);
-            console.log(response.data);
-            
+
         } catch (error) {
             console.log(error);
         }
     };
 
     useEffect(() => {
-        // const fetchItem = async () => {
-        // try {
-        //     const response = await getProductsById(patientId);
-        //     setData(response.data);
-        //     setFormData({
-        //         title: response.data.title,
-        //         creationAt: response.data.creationAt,
-        //         price: response.data.price
-        //     });
-        //     setLoading(false);
-        // } 
         refetch()
             .then(response => {
                 const fetchedData = response.data || {};
@@ -118,19 +104,12 @@ const ViewPatientDetails = () => {
                     creationAt: fetchedData.creationAt || '',
                     price: fetchedData.price || ''
                 });
-
-                console.log(fetchedData.title);
                 setLoading(false);
             })
             .catch(error => {
                 setError(error);
                 setLoading(false);
             })
-
-        console.log(data);
-
-        // }
-        // fetchItem();
     }, [patientId, refetch]);
 
     const handleInputChange = (e) => {
@@ -155,10 +134,8 @@ const ViewPatientDetails = () => {
     return (
         loading ?
             (
-                <Col className="col-12 m-0 p-2 d-flex justify-content-center align-items-center">
-                    <Row className="spinner-border" role="status" style={{ color: '#5DCAD4' }}>
-                        <span className="visually-hidden">Loading...</span>
-                    </Row>
+                <Col className="m-0 p-0 col-11 flex-fill position-relative d-flex align-items-center justify-content-center">
+                    <div className="spinner-border themeColor" />
                 </Col>
             ) : (patient ? (
                 <Col className="m-0 p-0 col-11 flex-fill position-relative">
@@ -168,8 +145,8 @@ const ViewPatientDetails = () => {
                                 <Col className='col-12 m-0 p-0 pb-5'>
                                     <DetailsRow value={data} />
                                     <Row className="m-0 p-0 py-5 d-flex  justify-content-end">
-                                        <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 text-light" style={{ backgroundColor: '#5dcad4' }} onClick={handleCancel}>Edit</Col>
-                                        <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 text-light border-danger border-2" onClick={handleDel}><img src={del} alt="delete" /></Col>
+                                        <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 d-flex align-items-center text-light btnSub" onClick={handleCancel}>Edit</Col>
+                                        <Col className="btn m-0 p-0 col-2 w-auto px-3 py-1 mx-2 rounded-4 text-light border-danger d-flex align-items-center border-2" onClick={handleDel}><img src={del} alt="delete" /></Col>
                                     </Row>
                                 </Col>
                             </Row>
@@ -184,3 +161,17 @@ const ViewPatientDetails = () => {
     );
 }
 export default ViewPatientDetails;
+
+
+
+// const fetchItem = async () => {
+// try {
+//     const response = await getProductsById(patientId);
+//     setData(response.data);
+//     setFormData({                                              For Future Ref
+//         title: response.data.title,
+//         creationAt: response.data.creationAt,
+//         price: response.data.price
+//     });
+//     setLoading(false);
+// } 

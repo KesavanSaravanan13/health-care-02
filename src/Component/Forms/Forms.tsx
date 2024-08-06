@@ -2,13 +2,14 @@ import './Forms.css';
 import React from 'react';
 import * as Yup from 'yup';
 import Update from './Submit';
-import FieldForForm from './Field.tsx';
 import TopRow from '../TopRow/TopRow';
-import edit from '../Assests/edit-text.png';
+import FieldForForm from './Field.tsx';
 import ActiveBar from '../ActiveBar/ActiveBar';
 import { useState } from 'react';
 import { Form, Formik, FormikProps, } from 'formik';
 import { Button, Col, Row } from 'react-bootstrap';
+
+const edit = require('../Assests/edit-text.png');
 
 interface IFormsTypes {
     firstName: string;
@@ -22,7 +23,7 @@ interface IFormsTypes {
     state: string;
     postalCode: string;
 }
-const Forms : React.FC = () => {
+const Forms: React.FC = () => {
     const [inputFirstName, setinputFirstName] = useState<string>('Jessica');
     const [inputMail, setinputMail] = useState<string>('jessica@gmail.com');
     const [valueDisable, setvalueDisable] = useState<boolean>(true);

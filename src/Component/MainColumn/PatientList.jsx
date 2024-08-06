@@ -1,11 +1,10 @@
 import moment from 'moment';
-import SearchBar from './SearchBar.tsx';
 import '../MainColumn/PatientList.css';
+import SearchBar from './SearchBar.tsx';
 import CreateColumn from './CreateColumn';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Col } from 'react-bootstrap';
-import { Error, Success } from './SweetFires';
-import { createProducts, getProducts } from './AxiosApi';
+import { Error } from './SweetFires';
 import { useCreateDataMutation } from '../../reducers/apiSlice';
 
 const PatientList = () => {
@@ -60,9 +59,9 @@ const PatientList = () => {
         <Col className='col-11 m-0 p-2 p-md-4 flex-fill overflow-auto m-0 p-0 position-relative'>
             <SearchBar handleDisplay={handleDisplay} />
             {displayOn ?
-                <CreateColumn  setCount={setCount} count={count} header={'Add Details : '} buttonName={'Add'} column={'create'} 
-                offFunc={setDisplayOn} displayOn={displayOn} setFromData={setFormData} formData={formData} 
-                handleInputChange={handleInputChange} handleCreate={handleCreate} handlePre={handlePre} />
+                <CreateColumn setCount={setCount} count={count} header={'Add Details : '} buttonName={'Add'} column={'create'}
+                    offFunc={setDisplayOn} displayOn={displayOn} setFromData={setFormData} formData={formData}
+                    handleInputChange={handleInputChange} handleCreate={handleCreate} handlePre={handlePre} />
                 : null}
         </Col>
     );

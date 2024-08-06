@@ -1,0 +1,33 @@
+.overlay-down {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.custom-spinner {
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.2rem;
+}
+
+.custom-spinner .spinner-border {
+    border-color: #5DCAD4 transparent transparent transparent;
+}
+
+.overlay {
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 1000 !important;
+}
+
+.editLabel {
+    width: 200px !important;
+}
+
+.btnSub,.btnSub:focus {
+    background-color: #5dcad4 !important;
+    border: none !important;
+}
+
+.inputrow{
+    font-size: 15px !important;
+}
