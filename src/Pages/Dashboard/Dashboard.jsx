@@ -1,4 +1,4 @@
-import TopRow from '../TopRow/TopRow';
+import TopRow from '../../Component/TopRow/TopRow';
 import ColumnBars from './ColumnBars';
 import recover from '../../Assests/Frame 21.png';
 import Patientdp from '../../Assests/Frame 20.png';

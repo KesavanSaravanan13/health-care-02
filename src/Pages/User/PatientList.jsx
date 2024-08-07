@@ -1,10 +1,10 @@
 import moment from 'moment';
 import '../../Css/PatientList.css';
 import SearchBar from '../MainColumn/MainColumn';
-import CreateColumn from '../Table/CreateColumn';
+import CreateColumn from '../../Component/Table/CreateColumn.jsx';
 import { useState } from 'react';
 import { Col } from 'react-bootstrap';
-import { Error } from '../Sweet-Fires/SweetFires.jsx';
+import { Error } from '../../Component/Sweet-Fires/SweetFires.jsx';
 import { useCreateDataMutation } from '../../Redux/reducers/apiSlice.js';
 
 const PatientList = () => {

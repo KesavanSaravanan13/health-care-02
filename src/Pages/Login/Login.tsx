@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { Form, Formik, FormikProps } from 'formik';
 import { Col, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { InvalidUser, validUser } from '../Sweet-Fires/SweetFires';
+import { InvalidUser, validUser } from '../../Component/Sweet-Fires/SweetFires';
 
 const Logo = require('../../Assests/frame_small.png');
 

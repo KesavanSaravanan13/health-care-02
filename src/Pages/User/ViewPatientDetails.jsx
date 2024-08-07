@@ -6,7 +6,7 @@ import '../../Css/ViewPatientDetails.css';
 import { Col, Row } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
-import CreateColumn from "../Table/CreateColumn";
+import CreateColumn from "../../Component/Table/CreateColumn";
 import { useDeleteDatabyIdMutation, useGetDataByIdQuery, useUpdateDatabyIdMutation } from "../../Redux/reducers/apiSlice";
 
 const ViewPatientDetails = () => {

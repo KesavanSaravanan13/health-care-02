@@ -3,7 +3,7 @@ import Profile from '../User/Profile';
 import Sidebar from '../../Component/Side-Bar/SideBar';
 import Dashboard from '../Dashboard/Dashboard';
 import PatientList from '../User/PatientList';
-import DefaultColumn from '../Default-Column/DefaultColumn';
+import DefaultColumn from '../../Component/Default-Column/DefaultColumn';
 import ViewPatientDetails from '../User/ViewPatientDetails';
 import { Row } from 'react-bootstrap';
 

@@ -1,6 +1,6 @@
 import moment from "moment";
 import doc from '../../Assests/doc.jpg';
-import TopRow from "../TopRow/TopRow";
+import TopRow from "../../Component/TopRow/TopRow";
 import '../../Css/MainColumn.css';
 import video from '../../Assests/video.png';
 import msg from '../../Assests/Frame 23.png';
