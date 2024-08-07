@@ -1,10 +1,10 @@
 import '../../Css/MainColumn.css';
-import Profile from './Profile';
+import Profile from '../User/Profile';
 import Sidebar from '../../Component/Side-Bar/SideBar';
 import Dashboard from '../Dashboard/Dashboard';
-import PatientList from './PatientList';
-import DefaultColumn from './DefaultColumn';
-import ViewPatientDetails from './ViewPatientDetails';
+import PatientList from '../User/PatientList';
+import DefaultColumn from '../Default-Column/DefaultColumn';
+import ViewPatientDetails from '../User/ViewPatientDetails';
 import { Row } from 'react-bootstrap';
 
 const MainColumn = (props) => {

@@ -1,7 +1,7 @@
 import moment from 'moment';
 import '../../Css/PatientList.css';
-import SearchBar from './SearchBar.tsx';
-import CreateColumn from './CreateColumn';
+import SearchBar from '../MainColumn/MainColumn';
+import CreateColumn from '../Table/CreateColumn';
 import { useState } from 'react';
 import { Col } from 'react-bootstrap';
 import { Error } from '../Sweet-Fires/SweetFires.jsx';

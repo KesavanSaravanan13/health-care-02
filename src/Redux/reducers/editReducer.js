@@ -1,14 +1,14 @@
 
 import * as actions from '../../actions/actionTypes';
-import { getProducts } from '../../Component/API/AxiosApi';
+// import { getProducts } from '../../Component/API/AxiosApi';
 import { initialState } from './getReducers';
 let data=[];
-const response = () => {
-    getProducts().then(response =>{
-    data = response.data;
-})
-return data;
-};
+// const response = () => {
+//     getProducts().then(response =>{
+//     data = response.data;
+// })
+// return data;
+// };
 
 
 const editReducer = (state = initialState, action) => {
@@ -21,6 +21,7 @@ const editReducer = (state = initialState, action) => {
             };
         case actions.deleteData:
             //
+            break;
         default:
             return state;
     }

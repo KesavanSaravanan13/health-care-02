@@ -1,12 +1,12 @@
 import Swal from "sweetalert2";
-import DetailsRow from "./DetailsRow";
+import DetailsRow from "../MainColumn/DetailsRow";
 import del from '../../Assests/delete (1).png';
 import '../../Css/EditColumn.css';
 import '../../Css/ViewPatientDetails.css';
 import { Col, Row } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
-import CreateColumn from "./CreateColumn";
+import CreateColumn from "../Table/CreateColumn";
 import { useDeleteDatabyIdMutation, useGetDataByIdQuery, useUpdateDatabyIdMutation } from "../../Redux/reducers/apiSlice";
 
 const ViewPatientDetails = () => {

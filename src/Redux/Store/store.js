@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import editReducer from "../../reducers/editReducer";
 import getReducers from "../../reducers/getReducers";
-import { thunk } from "redux-thunk";
+// import { thunk } from "redux-thunk";
 import apiSlice from "../reducers/apiSlice";
 
 const store = configureStore({
