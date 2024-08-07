@@ -3,13 +3,13 @@ import axios from 'axios';
 import * as Yup from 'yup';
 import '../MainColumn/Login.css';
 import LoginField from './LoginField';
-import Logo from '../Assests/frame_small.png';
 import { useState } from 'react';
 import { Form, Formik, FormikProps } from 'formik';
 import { Col, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { InvalidUser, validUser } from './SweetFires';
 
+const Logo = require('../Assests/frame_small.png');
 
 interface IFormType {
     email: string;

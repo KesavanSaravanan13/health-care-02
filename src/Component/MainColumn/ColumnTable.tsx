@@ -1,10 +1,11 @@
 import Td from "./Td";
 import React from "react";
 import '../MainColumn/MainColumn.css';
-import view from '../Assests/view.png';
 import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
 
+const view = require('../Assests/view.png');
+     
 interface IColumnLabels {
     colValue: string;
     label: string;
