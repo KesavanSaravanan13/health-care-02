@@ -45,7 +45,6 @@ const SearchBar: React.FC<SearchBarProps> = ({ handleDisplay }) => {
             clearTimeout(typingTime.current);
         }
         setLoading(true);
-
         typingTime.current = setTimeout(() => {
             searchFilter(newVal);
         }, 1000);
