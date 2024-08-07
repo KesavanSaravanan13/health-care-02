@@ -1,10 +1,10 @@
-import TopRow from "../TopRow/TopRow";
-import Pagination from "../Pagination/Pagination.jsx";
+import TopRow from "../../Component/TopRow/TopRow.jsx";
+import Pagination from "../../Component/Pagination/Pagination.jsx";
 import '../../Css/EditColumn.css';
 import { Button, Col, Row } from "react-bootstrap";
 import React, { useEffect, useRef, useState } from "react";
 import { useGetDataQuery } from "../../Redux/reducers/apiSlice.js";
-import ColumnTable, { DataItem } from "../Table/ColumnTable.tsx";
+import ColumnTable, { DataItem } from "../../Component/Table/ColumnTable.tsx";
 
 interface SearchBarProps {
     handleDisplay: () => void;

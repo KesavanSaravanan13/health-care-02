@@ -1,6 +1,6 @@
 import moment from 'moment';
 import '../../Css/PatientList.css';
-import SearchBar from '../MainColumn/MainColumn';
+import SearchBar from '../MainColumn/SearchBar.tsx';
 import CreateColumn from '../../Component/Table/CreateColumn.jsx';
 import { useState } from 'react';
 import { Col } from 'react-bootstrap';
