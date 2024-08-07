@@ -1,10 +1,10 @@
 import moment from "moment";
-import doc from '../Assests/doc.jpg';
+import doc from '../../Assests/doc.jpg';
 import TopRow from "../TopRow/TopRow";
-import '../MainColumn/MainColumn.css';
-import video from '../Assests/video.png';
-import msg from '../Assests/Frame 23.png';
-import call from '../Assests/telephone.png';
+import '../../Css/MainColumn.css';
+import video from '../../Assests/video.png';
+import msg from '../../Assests/Frame 23.png';
+import call from '../../Assests/telephone.png';
 import { Link } from "react-router-dom";
 import { Col, Row } from "react-bootstrap";
 

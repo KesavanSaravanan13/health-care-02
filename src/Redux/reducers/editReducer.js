@@ -1,6 +1,6 @@
 
-import * as actions from '../actions/actionTypes';
-import { getProducts } from '../Component/MainColumn/AxiosApi';
+import * as actions from '../../actions/actionTypes';
+import { getProducts } from '../../Component/API/AxiosApi';
 import { initialState } from './getReducers';
 let data=[];
 const response = () => {

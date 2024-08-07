@@ -1,5 +1,5 @@
 import moment from 'moment';
-import '../MainColumn/Td.css';
+import '../../Css/Td.css';
 
 const Td = (props) => {
     if(props.type === 'date')

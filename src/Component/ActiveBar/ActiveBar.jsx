@@ -1,5 +1,5 @@
-import './ActiveBar.css';
-import doc from '../Assests/doc.jpg';
+import '../../Css/ActiveBar.css';
+import doc from '../../Assests/doc.jpg';
 import { Col, Row } from 'react-bootstrap';
 
 const ActiveBar = (props) => {

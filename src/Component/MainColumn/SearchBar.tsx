@@ -1,15 +1,15 @@
 import TopRow from "../TopRow/TopRow";
-import Pagination from "./Pagination";
-import '../MainColumn/EditColumn.css';
+import Pagination from "../Pagination/Pagination.jsx";
+import '../../Css/EditColumn.css';
 import { Button, Col, Row } from "react-bootstrap";
 import React, { useEffect, useRef, useState } from "react";
-import { useGetDataQuery } from "../../reducers/apiSlice";
+import { useGetDataQuery } from "../../Redux/reducers/apiSlice.js";
 import ColumnTable, { DataItem } from "./ColumnTable.tsx";
 
 interface SearchBarProps {
     handleDisplay: () => void;
 }
-const sear = require('../Assests/search-interface-symbol.png');
+const sear = require('../../Assests/search-interface-symbol.png');
 
 const SearchBar: React.FC<SearchBarProps> = ({ handleDisplay }) => {
     const { data: dataFromStore, isLoading, refetch } = useGetDataQuery([]);

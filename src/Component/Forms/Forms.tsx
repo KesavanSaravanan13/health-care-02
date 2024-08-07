@@ -1,4 +1,4 @@
-import './Forms.css';
+import '../../Css/Forms.css';
 import React from 'react';
 import * as Yup from 'yup';
 import Update from './Submit';
@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { Form, Formik, FormikProps, } from 'formik';
 import { Button, Col, Row } from 'react-bootstrap';
 
-const edit = require('../Assests/edit-text.png');
+const edit = require('../../Assests/edit-text.png');
 
 interface IFormsTypes {
     firstName: string;

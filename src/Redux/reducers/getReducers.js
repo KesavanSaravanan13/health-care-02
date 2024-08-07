@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { getProducts } from "../Component/MainColumn/AxiosApi";
+import { getProducts } from "../../Component/API/AxiosApi";
 
 export const initialState = {
     loading: false,

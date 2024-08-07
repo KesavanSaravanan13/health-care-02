@@ -1,7 +1,7 @@
-import './MainColumn.css';
+import '../../Css/MainColumn.css';
 import Profile from './Profile';
-import Sidebar from './SideBar';
-import Dashboard from './Dashboard';
+import Sidebar from '../../Component/Side-Bar/SideBar';
+import Dashboard from '../Dashboard/Dashboard';
 import PatientList from './PatientList';
 import DefaultColumn from './DefaultColumn';
 import ViewPatientDetails from './ViewPatientDetails';

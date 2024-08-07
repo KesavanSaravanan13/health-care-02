@@ -1,11 +1,11 @@
 import moment from 'moment';
-import '../MainColumn/PatientList.css';
+import '../../Css/PatientList.css';
 import SearchBar from './SearchBar.tsx';
 import CreateColumn from './CreateColumn';
 import { useState } from 'react';
 import { Col } from 'react-bootstrap';
-import { Error } from './SweetFires';
-import { useCreateDataMutation } from '../../reducers/apiSlice';
+import { Error } from '../Sweet-Fires/SweetFires.jsx';
+import { useCreateDataMutation } from '../../Redux/reducers/apiSlice.js';
 
 const PatientList = () => {
     const [createData] = useCreateDataMutation();

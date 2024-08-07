@@ -2,8 +2,8 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MainColumn from './Component/MainColumn/MainColumn';
-import Login from './Component/MainColumn/Login.tsx';
-import PrivateRoutes, { LoginPrivateRoutes } from './Component/MainColumn/PrivateRoutes';
+import Login from '../src/Component/Login/Login.tsx';
+import PrivateRoutes, { LoginPrivateRoutes } from './Component/Private-Route/PrivateRoutes.jsx';
 import { useEffect } from 'react';
 
 function App() {

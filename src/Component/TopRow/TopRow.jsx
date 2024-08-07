@@ -1,12 +1,12 @@
-import '../TopRow/TopRow.css';
-import bell from '../Assests/bell.png';
-import doc from '../Assests/jejeje-1.png';
-import dropdown from '../Assests/dropdown_arrow.webp';
-import logout from '../Assests/Frame 6.png';
+import '../../Css/TopRow.css';
+import bell from '../../Assests/bell.png';
+import doc from '../../Assests/jejeje-1.png';
+import dropdown from '../../Assests/dropdown_arrow.webp';
+import logout from '../../Assests/Frame 6.png';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Col, DropdownToggle, Row, Button } from 'react-bootstrap';
-import password from '../Assests/password.jpg';
-import profile from '../Assests/user.png';
+import password from '../../Assests/password.jpg';
+import profile from '../../Assests/user.png';
 import { useNavigate } from 'react-router-dom';
 
 const DropdownFunc = (name, alt, label) => {
