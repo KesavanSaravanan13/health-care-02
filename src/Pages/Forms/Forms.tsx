@@ -1,15 +1,15 @@
-import '../../Css/Forms.css';
+import '../../css/Forms.css';
 import React from 'react';
 import * as Yup from 'yup';
 import Update from './Submit';
-import TopRow from '../../Component/TopRow/TopRow.jsx';
+import TopRow from '../../component/top-row/TopRow.jsx';
 import FieldForForm from './Field.tsx';
-import ActiveBar from '../../Component/ActiveBar/ActiveBar.jsx';
+import ActiveBar from '../../component/active-bar/ActiveBar.jsx';
 import { useState } from 'react';
 import { Form, Formik, FormikProps, } from 'formik';
 import { Button, Col, Row } from 'react-bootstrap';
 
-const edit = require('../../Assests/edit-text.png');
+const edit = require('../../assests/edit-text.png');
 
 interface IFormsTypes {
     firstName: string;

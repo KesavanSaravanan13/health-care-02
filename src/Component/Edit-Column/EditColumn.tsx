@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
-import '../../Css/EditColumn.css';
-import { Cancel } from "../Sweet-Fires/SweetFires";
+import '../../css/EditColumn.css';
+import { Cancel } from "../sweet-fires/SweetFires";
 import React, { useState } from 'react';
 import { Button, Col, Row } from "react-bootstrap";
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";

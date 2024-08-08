@@ -1,4 +1,4 @@
-import Forms from '../Forms/Forms.tsx';
+import Forms from '../forms/Forms.tsx';
 import { Col, Row } from 'react-bootstrap';
 
 const Profile = () => {

@@ -1,4 +1,4 @@
-import '../../Css/LoginField.css';
+import '../../css/LoginField.css';
 import { Col, Row } from "react-bootstrap";
 import { ErrorMessage, Field } from "formik";
 

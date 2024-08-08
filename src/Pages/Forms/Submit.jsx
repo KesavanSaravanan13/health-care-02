@@ -1,6 +1,6 @@
-import '../../Css/Submit.css';
+import '../../css/Submit.css';
 import { Button, Row } from 'react-bootstrap';
-import { Cancel, Updated } from '../../Component/Sweet-Fires/SweetFires';
+import { Cancel, Updated } from '../../component/sweet-fires/SweetFires';
 
 const Update = (props) => {
     return (

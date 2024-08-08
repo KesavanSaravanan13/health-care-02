@@ -1,8 +1,8 @@
-import TopRow from '../../Component/TopRow/TopRow';
+import TopRow from '../../component/top-row/TopRow';
 import ColumnBars from './ColumnBars';
-import recover from '../../Assests/Frame 21.png';
-import Patientdp from '../../Assests/Frame 20.png';
-import treatment from '../../Assests/Frame 22.png';
+import recover from '../../assests/Frame 21.png';
+import Patientdp from '../../assests/Frame 20.png';
+import treatment from '../../assests/Frame 22.png';
 import { Col, Row } from 'react-bootstrap';
 
 

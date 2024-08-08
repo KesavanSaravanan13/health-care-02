@@ -1,4 +1,4 @@
-import '../../Css/ColumnBars.css';
+import '../../css/ColumnBars.css';
 import { Col, Row } from 'react-bootstrap';
 
 const ColumnBars = (props) => {

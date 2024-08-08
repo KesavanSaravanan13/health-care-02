@@ -1,15 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 import * as Yup from 'yup';
-import '../../Css/Login.css';
+import '../../css/Login.css';
 import LoginField from './LoginField';
 import { useState } from 'react';
 import { Form, Formik, FormikProps } from 'formik';
 import { Col, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { InvalidUser, validUser } from '../../Component/Sweet-Fires/SweetFires';
+import { InvalidUser, validUser } from '../../component/sweet-fires/SweetFires';
 
-const Logo = require('../../Assests/frame_small.png');
+const Logo = require('../../assests/frame_small.png');
 
 interface IFormType {
     email: string;

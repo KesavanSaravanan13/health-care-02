@@ -1,6 +1,6 @@
 import moment from 'moment';
-import EditColumn from '../Edit-Column/EditColumn.tsx';
-import { Cancel, Success } from "../Sweet-Fires/SweetFires.jsx";
+import EditColumn from '../edit-column/EditColumn.tsx';
+import { Cancel, Success } from "../sweet-fires/SweetFires.jsx";
 
 const CreateColumn = ({ header, buttonName, column, setFromData, offFunc, formData, displayOn, handleCreate, handlePre, handleSave, count, setCount }) => {
     if (column === 'edit') {

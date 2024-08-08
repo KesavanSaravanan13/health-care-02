@@ -106,6 +106,6 @@ input:disabled {
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-    background-image: url("../../src/Assests/dob.png");
+    background-image: url("../../src/assests/dob.png");
     cursor: pointer;
 }

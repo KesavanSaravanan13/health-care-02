@@ -1,4 +1,4 @@
-import '../../Css/Pagination.css';
+import '../../css/Pagination.css';
 import { useEffect, useState } from 'react';
 
 const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
